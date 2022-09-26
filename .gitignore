@@ -26,3 +26,10 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+frontend/auto-imports.d.ts
+.gitignore
+frontend/env.d.ts
+frontend/components.d.ts
+backend-tmp
+
+tmp/
