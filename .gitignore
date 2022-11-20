@@ -33,3 +33,8 @@ frontend/components.d.ts
 backend-tmp
 
 tmp/
+package-lock.json
+backend/raw_schema.txt
+backend/rawHTML.html
+backend/tmp.js
+bk/
