@@ -5,5 +5,5 @@ export interface RefreshToken {
 }
 export interface Token {
     username: string;
-    expiryDate: Date;
+    exp: number;
 }
