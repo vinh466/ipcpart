@@ -3,23 +3,15 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface StorageDriveModel {
-
-    storageDriveId: string;
-    storageDriveName: string;
-    imgUrl: string;
-    brand: string;
+interface StorageDriveModel extends Product {
     type: string;
     pricePerGb: number;
     capacity: string;
     cache: string;
     form: string;
     interface: string;
-    price: number;
     maxRead: string;
     maxWrite: string;
-    updatedAt?: Date;
-    createdAt?: Date;
 
 }
 interface StorageDriveRowData extends StorageDriveModel, RowDataPacket { }
@@ -36,7 +28,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            storageDriveId?: string,
+            productId?: string,
             productName?: string,
             productBrand?: string,
             type?: string,
@@ -50,7 +42,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`storage_drives`.`storageDriveId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -76,7 +68,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.storageDriveId ? `AND(\`storage_drives\`.\`storageDriveId\` = '${where.storageDriveId}')` : '') +
+            (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.type ? `AND(\`storage_drives\`.\`type\`  LIKE '%${where.type}%')` : '') +

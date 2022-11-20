@@ -3,12 +3,7 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface ProductModel {
-
-    productId: string;
-    detailId: string;
-    price?: string;
-    inStock?: string;
+interface ProductModel extends Product {
 }
 interface ProductRowData extends ProductModel, RowDataPacket { }
 

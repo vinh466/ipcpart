@@ -3,21 +3,13 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface MonitorModel {
-
-    monitorId: string;
-    monitorName: string;
-    imgUrl: string;
-    brand: string;
+interface MonitorModel extends Product {
     screenSize: string;
     resolution: string;
     refreshRate: string;
     responseTime: string;
     panelType: string;
     ratio: string;
-    price: number;
-    updatedAt?: Date;
-    createdAt?: Date;
 }
 
 
@@ -34,7 +26,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            monitorId?: string
+            productId?: string
             productName?: string
             productBrand?: string
             screenSize?: string
@@ -46,7 +38,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`monitors`.`monitorId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -70,7 +62,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.monitorId ? `AND(\`monitors\`.\`monitorId\` = '${where.monitorId}')` : '') +
+            (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.screenSize ? `AND(\`monitor\`.\`screenSize\`  LIKE '%${where.screenSize}%')` : '') +

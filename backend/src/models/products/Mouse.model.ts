@@ -3,20 +3,12 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface MouseModel {
-
-    mouseId: string;
-    mouseName: string;
-    imgUrl: string;
-    brand: string;
+interface MouseModel extends Product {
     trackingMethod: string;
     conectType: string;
     dpi: number;
     hand: string;
     color: string;
-    price: number;
-    updatedAt?: Date;
-    createdAt?: Date;
 }
 
 
@@ -33,7 +25,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            mouseId?: string,
+            productId?: string,
             productName?: string,
             productBrand?: string,
             trackingMethod?: string,
@@ -44,7 +36,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`mouses`.`mouseId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -67,7 +59,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.mouseId ? `AND (\`mouses\`.\`mouseId\` = '${where.mouseId}')` : '') +
+            (where.productId ? `AND (\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND (\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND (\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.trackingMethod ? `AND (\`mouses\`.\`trackingMethod\` LIKE '%${where.trackingMethod}%')` : '') +

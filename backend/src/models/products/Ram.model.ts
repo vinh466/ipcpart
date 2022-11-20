@@ -3,11 +3,7 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface RamModel {
-
-    ramId: string;
-    ramName: string;
-    brand: string;
+interface RamModel extends Product {
     capacity: number;
     speed: number;
     standard: string;
@@ -15,10 +11,6 @@ interface RamModel {
     module: string;
     pricePerGb: number;
     color: string;
-    cas: number;
-    price: number;
-    updatedAt?: Date;
-    createdAt?: Date;
 }
 interface RamRowData extends RamModel, RowDataPacket { }
 
@@ -34,7 +26,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            ramId?: string,
+            productId?: string,
             productName?: string,
             productBrand?: string,
             capacity?: number,
@@ -48,7 +40,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`rams`.`ramId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -74,7 +66,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.ramId ? `AND(\`rams\`.\`ramId\` = '${where.ramId}')` : '') +
+            (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.capacity ? `AND(\`rams\`.\`capacity\`  LIKE '%${where.capacity}%')` : '') +

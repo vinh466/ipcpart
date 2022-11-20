@@ -2,8 +2,9 @@ import { NextFunction, Request, Response, Router } from "express";
 import { body, validationResult } from 'express-validator';
 
 import { refreshToken, signIn, logout, signUp } from "@controllers/auth.controller";
-import { validateLogin, validateRegisterUser } from "@middlewares/requestValidator.mdw";
+import { validateForm, validateLoginForm, validateRegisterForm, } from "@middlewares/requestValidator.mdw";
 import { isUser } from "@middlewares/auth.mdw";
+import { Models } from "@models/index";
 
 const authRoute = Router();
 
@@ -14,17 +15,24 @@ authRoute.use(function (req, res, next) {
     next();
 });
 
-authRoute.get('/', isUser, (req: Request, res: Response, next: NextFunction) => {
-    res.send('Welcome to Auth Route');
+authRoute.get('/', async (req: Request, res: Response, next: NextFunction) => {
+    let rs = await Models.User.findByUsername('vinh466')
+    res.send(rs);
 })
 
 
-authRoute.post('/signup', validateRegisterUser, signUp)
+authRoute.post('/signup', validateRegisterForm, validateForm, signUp)
 
-authRoute.post('/signin', validateLogin, signIn)
+authRoute.post('/signin', validateLoginForm, validateForm, signIn)
 
 authRoute.post('/logout', logout)
 
 authRoute.post('/refreshToken', refreshToken)
+
+authRoute.post('/test', async (req, res) => {
+    console.log(req.query.username);
+    const isExist = await Models.User.findByUsername(req.query.username as string)
+    res.status(200).json(isExist);
+})
 
 export default authRoute;

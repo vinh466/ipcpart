@@ -2,19 +2,12 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface MainboardModel {
-    mainboardId: string;
-    mainboardName: string;
-    brand: string;
+interface MainboardModel extends Product {
     chipset: string;
     form: string;
     ramCap: number;
-    imgUrl: string;
     color: string;
     ramSlot: number;
-    price: number;
-    updatedAt?: Date;
-    createdAt?: Date;
 }
 
 interface MainboardRowData extends MainboardModel, RowDataPacket { }
@@ -30,7 +23,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            mainboardId?: string
+            productId?: string
             productName?: string
             productBrand?: string
             chipset?: string
@@ -43,7 +36,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`mainboards`.`mainboardId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -69,7 +62,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.mainboardId ? `AND(\`mainboards\`.\`mainboardId\` = '${where.mainboardId}')` : '') +
+            (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.chipset ? `AND(\`mainboards\`.\`chipset\`  LIKE '%${where.chipset}%')` : '') +

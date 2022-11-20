@@ -3,21 +3,13 @@
 import { ProductId, Product } from "@type/models/product";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface VideoCardModel {
-
-    videoCardId: string;
-    videoCardName: string;
-    brand: string;
+interface VideoCardModel extends Product {
     chipsetName: string;
     coreClock: number;
     boostClock: number;
     color: string;
     length: number;
     memory: number;
-    price: number;
-    imgUrl: string;
-    updatedAt?: Date;
-    createdAt?: Date;
 }
 interface VideoCardRowData extends VideoCardModel, RowDataPacket { }
 
@@ -32,7 +24,7 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            videocardId?: string,
+            productId?: string,
             productName?: string,
             productBrand?: string,
             chipsetName?: string,
@@ -44,7 +36,7 @@ export default class User {
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
-            "`video_cards`.`videocardId`," +
+            "`product`.`productId`," +
             "`product`.`productName`," +
             "`product`.`productPhoto`," +
             "`product`.`productBrand`," +
@@ -68,7 +60,7 @@ export default class User {
         );
 
         const whereQuery = ('' +
-            (where.videocardId ? `AND(\`video_cards\`.\`videocardId\` = '${where.videocardId}')` : '') +
+            (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
             (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
             (where.chipsetName ? `AND(\`video_cards\`.\`chipsetName\`  LIKE '%${where.chipsetName}%')` : '') +

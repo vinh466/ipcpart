@@ -1,12 +1,9 @@
+import { Product, ProductId } from "@type/models/product";
 import { nestedConvert } from "@utils/convert.util";
 import { Connection, escape, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 
-interface CpuModel {
-    cpuId: string;
-    productName: string;
+interface CpuModel extends ProductId {
     cpuTypeId: number;
-    productPhoto: string;
-    productBrand: string;
     coreCount: number;
     coreClock: string;
     coreBoost: string;
@@ -14,10 +11,6 @@ interface CpuModel {
     spend: string;
     tdp: string;
     iGpu: string;
-    price: number;
-    updatedAt?: Date;
-    createdAt?: Date;
-    deletedAt?: Date;
 }
 interface CpuRowData extends CpuModel, RowDataPacket { }
 
@@ -32,7 +25,7 @@ export default class Cpu {
         page = 1,
         pageSize = 50,
         where = <{
-            cpuId?: string,
+            productId?: string,
             cpuName?: string,
             brand?: string,
             processor?: string,
@@ -71,7 +64,7 @@ export default class Cpu {
         );
 
         const whereQuery = ('' +
-            (where.cpuId ? `AND (\`Cpus\`.\`cpuId\` = '${where.cpuId}')` : '') +
+            (where.productId ? `AND (\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.cpuName ? `AND (\`product\`.\`productName\` LIKE '%${where.cpuName}%')` : '') +
             (where.brand ? `AND (\`product\`.\`productBrand\` LIKE '%${where.brand}%')` : '') +
             (where.processor ? `AND (\`Cpu_Type\`.\`processor\` LIKE '%${where.processor}%')` : '') +
