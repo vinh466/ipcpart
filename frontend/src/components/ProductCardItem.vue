@@ -1,31 +1,27 @@
 <template>
   <div class="card">
-    <div
-      class="card-thumbnail"
-      @click="(e) => handleViewProduct(e, item.productId)"
-    >
-      <img
-        v-lazy="`/image/product/${item.imgUrl}`"
-        :alt="item.imgUrl.slice(0 - 4)"
-      />
+    <div class="card-thumbnail" @click="(e) => handleViewProduct(e)">
+      <router-link :to="pathProductDetail">
+        <img
+          v-lazy="`${item.productPhoto}`"
+          :alt="item.productPhoto.slice(0 - 4)"
+        />
+      </router-link>
     </div>
 
     <div class="card-detail">
-      <div
-        class="card-detail__name"
-        @click="(e) => handleViewProduct(e, item.productId)"
-      >
+      <div class="card-detail__name" @click="(e) => handleViewProduct(e)">
         <span>{{ item.productName }}</span>
       </div>
 
       <div class="card-detail_bot">
-        <div class="card-detail__price">
+        <div class="card-detail__price" v-if="newPrice != 0">
           <span>{{ formatVND(newPrice) }} </span>
           <del v-if="item.discount" class="card-detail__price--old"
-            >{{ formatVND(item.price) }}
+            >{{ formatVND(item.price * 1000) }}
           </del>
         </div>
-
+        <span class="card-detail__price--update" v-else>Đang cập nhập</span>
         <div
           :class="{ 'visible-hidden': starCount < 1 }"
           class="card-detail__review"
@@ -43,15 +39,10 @@
     </div>
 
     <div class="card-control" :class="{ 'card-control--hover': controlHover }">
-      <button @click="(e) => handlePreview(e, item.productId)">
-        <font-awesome-icon icon="fa-solid fa-eye" />
-      </button>
-      <button @click="(e) => handleAddToCart(e, item.productId)">
+      <button @click="(e) => handleAddToCart(e)">
         <font-awesome-icon icon="fa-solid fa-cart-arrow-down" />
       </button>
-      <button @click="(e) => handlePurchase(e, item.productId)">
-        Mua Ngay
-      </button>
+      <button @click="(e) => handlePurchase(e)">Mua Ngay</button>
     </div>
 
     <div v-if="item.discount" class="card-sale-flag">
@@ -61,165 +52,203 @@
 </template>
 
 <script setup lang="ts">
-import type { Product } from '@/types/api/products/product';
-import { computed } from '@vue/runtime-core';
-import { formatVND } from '@/util/formatNumber';
-import { useToast } from 'vue-toastification';
+  import type { Product } from '@/types/api/products/product';
+  import { computed } from '@vue/runtime-core';
+  import { formatVND } from '@/util/formatNumber';
+  import { useToast } from 'vue-toastification';
+  import { useCartStore } from '@/stores/CartStore';
+  import { useRouter } from 'vue-router';
+  const router = useRouter();
 
-const props = withDefaults(
-  defineProps<{ item: Product; controlHover?: boolean }>(),
-  {
-    controlHover: true,
-  }
-);
-const emit = defineEmits<{
-  (e: 'onViewProduct', event: Event, id: String): void;
-  (e: 'onPurchase', event: Event, id: String): void;
-  (e: 'onAddToCart', event: Event, id: String): void;
-  (e: 'onPreview', event: Event, id: String): void;
-  (e: 'change', event: Event, id: number): void;
-  (e: 'update', value: String): void;
-}>();
+  const cartStore = useCartStore();
+  const props = withDefaults(
+    defineProps<{ item: Product; controlHover?: boolean }>(),
+    {
+      controlHover: true,
+    }
+  );
+  const emit = defineEmits<{
+    (e: 'onViewProduct', id: string, type: string): void;
+    (e: 'onPurchase', id: string, type: string): void;
+    (e: 'onAddToCart', id: string, name: string, type: string): void;
+  }>();
 
-const toast = useToast();
+  const toast = useToast();
 
-const starCount = computed(() => props.item.review?.rate || 0);
-const newPrice = computed(() => {
-  if (props.item.discount)
-    return (props.item.price * (100 - props.item.discount)) / 100;
-  return props.item.price;
-});
-const handleViewProduct = (e: Event, id: String) => {
-  emit('onViewProduct', e, id);
-  e.stopPropagation();
-};
-const handlePurchase = (e: Event, id: String) => {
-  emit('onPurchase', e, id);
-  e.stopPropagation();
-};
-const handleAddToCart = (e: Event, id: String) => {
-  emit('onAddToCart', e, id);
-  e.stopPropagation();
-};
-const handlePreview = (e: Event, id: String) => {
-  emit('onPreview', e, id);
-  e.stopPropagation();
-};
+  const starCount = computed(() => props.item.review?.rate || 0);
+  const newPrice = computed(() => {
+    if (props.item.discount)
+      return (props.item.price * 1000 * (100 - props.item.discount)) / 100;
+    return props.item.price * 1000;
+  });
+  const pathProductDetail = computed(() => {
+    return `/product/${props.item.productType.replace(' ', '-')}/${
+      props.item.productId
+    }`;
+  });
+  const handleViewProduct = (e: Event) => {
+    // emit('onViewProduct', props.item.productId, props.item.productType);
+    // e.stopPropagation();
+  };
+  const handlePurchase = (e: Event) => {
+    e.stopPropagation();
+    emit('onPurchase', props.item.productId, props.item.productType);
+    cartStore.addToCart({
+      id: props.item.productId,
+      name: props.item.productName,
+      photo: props.item.productPhoto,
+      price: props.item.price,
+      quantity: 1,
+      type: props.item.productType,
+    });
+    router.push({ path: '/cart' });
+  };
+  const handleAddToCart = (e: Event) => {
+    e.stopPropagation();
+    emit(
+      'onAddToCart',
+      props.item.productId,
+      props.item.productName,
+      props.item.productType
+    );
+    cartStore.addToCart({
+      id: props.item.productId,
+      name: props.item.productName,
+      photo: props.item.productPhoto,
+      price: props.item.price,
+      quantity: 1,
+      type: props.item.productType,
+    });
+  };
 </script>
 
 <style lang="scss">
-.card {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 200px;
-  margin: 10px;
-  background: white;
-  color: var(--text-light-1);
-  cursor: pointer;
-
-  &:hover {
-    .card-control {
-      visibility: visible;
-    }
-
-    .card-detail__name {
-      color: var(--green-mute);
-    }
-  }
-
-  &-thumbnail {
+  .card {
     display: flex;
-    align-items: center;
-    object-fit: cover;
-    width: 100%;
-    height: 226px;
     position: relative;
-    margin-bottom: 5px;
-
-    & img {
-      -webkit-user-drag: none;
-      -khtml-user-drag: none;
-      -moz-user-drag: none;
-      -o-user-drag: none;
-      user-drag: none;
-      user-select: none;
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-  &-detail {
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 1;
-    margin-bottom: 5px;
+    min-width: 200px;
+    margin: 10px;
+    background: white;
+    color: var(--text-light-1);
+    cursor: pointer;
 
-    &__name {
-      display: block;
-      padding: 0 10px;
-      /* text-align: justify; */
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2; /* number of lines to show */
-      line-clamp: 2;
-      -webkit-box-orient: vertical;
+    &:hover {
+      .card-control {
+        visibility: visible;
+      }
+
+      .card-detail__name {
+        color: var(--green-mute);
+      }
     }
 
-    &__price {
-      padding: 10px 10px 0;
-
-      &:first-child {
-        font-weight: 700;
+    &-thumbnail {
+      display: flex;
+      align-items: center;
+      object-fit: cover;
+      width: 100%;
+      height: 226px;
+      position: relative;
+      margin-bottom: 5px;
+      & a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      &--old {
-        padding: 0 5px;
-        color: gray;
+      & img {
+        -webkit-user-drag: none;
+        -khtml-user-drag: none;
+        -moz-user-drag: none;
+        -o-user-drag: none;
+        -webkit-user-drag: none;
+        user-select: none;
+        height: 100%;
+        width: 100%;
+        max-width: 100%;
+        // height: 100%;
+        object-fit: contain;
+      }
+    }
+    &-detail {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex: 1;
+      margin-bottom: 5px;
+
+      &__name {
+        display: block;
+        padding: 0 10px;
+        /* text-align: justify; */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+
+      &__price {
+        padding: 10px 10px 0;
+
+        &:first-child {
+          font-weight: 700;
+        }
+        &--old {
+          padding: 0 5px;
+          color: gray;
+          font-size: 0.9rem;
+        }
+        &--update {
+          padding: 0 5px;
+          color: #bbb;
+          font-size: 0.9rem;
+        }
+      }
+
+      &__review {
+        padding: 0 10px;
         font-size: 0.9rem;
+        & svg {
+          color: orange;
+        }
       }
     }
-
-    &__review {
-      padding: 0 10px;
-      font-size: 0.9rem;
-      & svg {
-        color: orange;
-      }
-    }
-  }
-  &-sale-flag {
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    color: white;
-    background-color: red;
-    font-weight: 700;
-    border-radius: 50px;
-    padding: 0 5px 0 2px;
-  }
-
-  &-control {
-    display: flex;
-    justify-content: end;
-    margin: 0 5px 5px;
-
-    & > * {
-      font-size: 18px;
-      margin-right: 5px;
-      padding: 5px 8px;
-      background-color: var(--green-soft);
-    }
-
-    &--hover {
-      flex-direction: row-reverse;
+    &-sale-flag {
       position: absolute;
-      bottom: 115px;
-      right: 0;
-      visibility: hidden;
-      z-index: 99;
+      top: 3px;
+      left: 3px;
+      color: white;
+      background-color: red;
+      font-weight: 700;
+      border-radius: 50px;
+      padding: 0 5px 0 2px;
+    }
+
+    &-control {
+      display: flex;
+      justify-content: end;
+      margin: 0 5px 5px;
+
+      & > * {
+        font-size: 18px;
+        margin-right: 5px;
+        padding: 5px 8px;
+        background-color: var(--green-soft);
+      }
+
+      &--hover {
+        flex-direction: row-reverse;
+        position: absolute;
+        bottom: 115px;
+        right: 0;
+        visibility: hidden;
+        z-index: 99;
+      }
     }
   }
-}
 </style>

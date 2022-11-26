@@ -1,6 +1,6 @@
 <template>
   <div class="flex-grid">
-    <CardItem
+    <ProductCardItem
       class="col"
       v-for="item in list"
       :item="item"
@@ -12,7 +12,7 @@
 <script setup lang="ts">
   import type { Product } from '@/types/api/products/product';
   import { onMounted } from '@vue/runtime-core';
-  import CardItem from './ProductCardItem.vue';
+  import ProductCardItem from './ProductCardItem.vue';
 
   const props = defineProps<{ list: Product[] }>();
   onMounted(() => {
