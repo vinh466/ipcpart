@@ -78,14 +78,16 @@ export const useAuthStore = defineStore({
             }
             this.isProcessing = false;
         },
-        logout() {
+
+        logout(redirect = true) {
             this.user = null;
             (this.user) && authService.logout();
             localStorage.removeItem('user');
             console.log('remove localstorage')
-            this.router.push('/auth');
+            if (redirect) this.router.push('/auth');
         },
-        async refreshToken() {
+
+        async refreshToken(redirect = true) {
             return new Promise(async (resolve, reject) => {
                 try {
                     this.isProcessing = true;
@@ -97,8 +99,9 @@ export const useAuthStore = defineStore({
                     if (isAxiosError(error)) {
                         const response = (error as AxiosError).response
                         if (response?.status && [404, 403, 401, 500].includes(response.status)) {
-                            this.logout();
-                            this.router.push('auth/signin');
+                            this.logout(false);
+                            console.log('redirect:  ' + redirect)
+                            if (redirect) this.router.push('auth/signin');
                         }
                     }
                     console.log(error)
