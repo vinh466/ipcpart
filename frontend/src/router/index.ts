@@ -8,20 +8,20 @@ import { authGuard, redirectGuard } from './guards';
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'intro',
+    name: 'home',
     meta: {
       layout: main
     },
-    component: Intro
+    component: () => import('@/views/home/home.vue')
   },
   {
     path: '/home',
-    name: 'home',
+    name: 'intro',
 
     meta: {
       layout: main
     },
-    component: () => import('@/views/home/index.vue')
+    component: Intro
   },
   {
     path: '/cart',
@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: main
     },
-    component: () => import('@/views/cart/index.vue')
+    component: () => import('@/views/cart/cart.vue')
   },
   {
     path: '/auth/:action',
@@ -38,6 +38,22 @@ const routes: Array<RouteRecordRaw> = [
       layout: main
     },
     component: () => import('@/views/auth/auth.vue')
+  },
+  {
+    path: '/product/:productType',
+    name: 'productSreach',
+    meta: {
+      layout: main
+    },
+    component: () => import('@/views/products/product.vue')
+  },
+  {
+    path: '/product/:productType/:productId',
+    name: 'productOverview',
+    meta: {
+      layout: main
+    },
+    component: () => import('@/views/products/productDetail.vue')
   },
   {
     path: '/:catchAll(.*)',

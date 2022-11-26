@@ -4,7 +4,7 @@ import type { NavigationGuardNext, RouteLocationNormalized } from "vue-router";
 export const authGuard = async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
     const authStore = useAuthStore();
 
-    const privitePages = ['/payment', '/cart'];
+    const privitePages = ['/payment',];
 
     const authRequired = privitePages.includes(to.path);
 

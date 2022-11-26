@@ -15,6 +15,8 @@ import {
     faChevronLeft,
     faChevronRight,
     faCartShopping,
+    faSpinner, faList, faRotateLeft
+
 } from '@fortawesome/free-solid-svg-icons'
 import {
     faFacebookF,
@@ -23,8 +25,10 @@ import {
     faTwitter,
     faGithub,
     faYoutube,
+
+
 } from '@fortawesome/free-brands-svg-icons';
-import { faStar, faUser, } from '@fortawesome/free-regular-svg-icons';
+import { faStar, faUser, faCircleXmark, } from '@fortawesome/free-regular-svg-icons';
 
 // faFacebook
 // faGoogle
@@ -35,6 +39,7 @@ import { faStar, faUser, } from '@fortawesome/free-regular-svg-icons';
 library.add(
     faEye,
     faFacebookF,
+    faCircleXmark,
     faFacebook,
     faGoogle,
     faGithub,
@@ -42,7 +47,9 @@ library.add(
     faYoutube,
     faCartArrowDown,
     faCartShopping,
-
+    faSpinner,
+    faList,
+    faRotateLeft,
 );
 library.add(fasStar, fasSun, faMoon, faUserSecret, faChevronLeft, faChevronRight);
 library.add(faStar, faUser);
