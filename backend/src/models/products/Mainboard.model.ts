@@ -1,15 +1,24 @@
 
 import { ProductId, Product } from "@type/models/product";
+import { convertRegexpQuery } from "@utils/convert.util";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
+import { SERVERNAME } from "server";
 
 interface MainboardModel extends Product {
+    productId: string;
+    productName: string;
+    productType: string;
+    productPhoto: string;
+    productBrand: string;
     chipset: string;
     form: string;
+    socket: string;
     ramCap: number;
+    ramStandard: string;
     color: string;
     ramSlot: number;
+    price: number;
 }
-
 interface MainboardRowData extends MainboardModel, RowDataPacket { }
 
 export default class User {
@@ -23,16 +32,16 @@ export default class User {
         page = 1,
         pageSize = 50,
         where = <{
-            productId?: string
-            productName?: string
-            productBrand?: string
-            chipset?: string
-            socket?: string
-            ramStandard?: string
-            form?: string
-            color?: string
-            ramCap?: number
-            ramSlot?: number
+            productId?: string;
+            productName?: string;
+            productBrand?: string[];
+            chipset?: string[];
+            socket?: string[];
+            ramStandard?: string[];
+            form?: string[];
+            color?: string[];
+            ramCap?: string[];
+            ramSlot?: string[];
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
@@ -64,14 +73,14 @@ export default class User {
         const whereQuery = ('' +
             (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
-            (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
-            (where.chipset ? `AND(\`mainboards\`.\`chipset\`  LIKE '%${where.chipset}%')` : '') +
-            (where.socket ? `AND(\`mainboard_chipset\`.\`socket\`  LIKE '%${where.socket}%')` : '') +
-            (where.ramStandard ? `AND(\`mainboard_chipset\`.\`ramStandard\`  LIKE '%${where.ramStandard}%')` : '') +
-            (where.form ? `AND(\`mainboards\`.\`form\` LIKE '%${where.form}%')` : '') +
-            (where.color ? `AND(\`mainboards\`.\`color\`  LIKE '%${where.color}%')` : '') +
-            (where.ramCap ? `AND(\`mainboards\`.\`ramCap\` LIKE '%${where.ramCap}%')` : '') +
-            (where.ramSlot ? `AND(\`mainboards\`.\`ramSlot\` LIKE '%${where.ramSlot}%');` : '')
+            (where.productBrand ? `AND(\`product\`.\`productBrand\` REGEXP '${convertRegexpQuery(where.productBrand)}')` : '') +
+            (where.chipset ? `AND(\`mainboards\`.\`chipset\`  REGEXP '${convertRegexpQuery(where.chipset)}')` : '') +
+            (where.socket ? `AND(\`mainboard_chipset\`.\`socket\`  REGEXP '${convertRegexpQuery(where.socket)}')` : '') +
+            (where.ramStandard ? `AND(\`mainboard_chipset\`.\`ramStandard\`  REGEXP '${convertRegexpQuery(where.ramStandard)}')` : '') +
+            (where.form ? `AND(\`mainboards\`.\`form\` REGEXP '${convertRegexpQuery(where.form)}')` : '') +
+            (where.color ? `AND(\`mainboards\`.\`color\`  REGEXP '${convertRegexpQuery(where.color)}')` : '') +
+            (where.ramCap ? `AND(\`mainboards\`.\`ramCap\` REGEXP '${convertRegexpQuery(where.ramCap)}')` : '') +
+            (where.ramSlot ? `AND(\`mainboards\`.\`ramSlot\` REGEXP '${convertRegexpQuery(where.ramSlot)}');` : '')
         );
         try {
             // Get total query record
@@ -86,10 +95,10 @@ export default class User {
             rawRecords = rawRecords.slice(start, start + 1 * pageSize)
 
             const records: MainboardModel[] = rawRecords;
-            // rawRecords.forEach(element => {
-            //     const obj = element as CpuModel
-            //     records.push(nestedConvert(obj as CpuModel))
-            // });
+            rawRecords.forEach(element => {
+                const obj = element as MainboardModel
+                obj.productPhoto = SERVERNAME + obj.productPhoto;
+            });
             return { records, total, currPage }
         } catch (err) {
             console.log(err)

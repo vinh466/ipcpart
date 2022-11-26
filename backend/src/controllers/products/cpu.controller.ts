@@ -1,4 +1,5 @@
 import { Models } from "@models/index";
+import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { where } from "sequelize";
 
@@ -8,16 +9,17 @@ export const allAccess = (req: Request, res: Response) => {
 
 export const getCpu = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
-    let sizeReq = parseInt(req.query.amount as string) || 50;
+    let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.cpuId as string,
-        cpuName: req.query.cpuName as string,
-        brand: req.query.brand as string,
-        processor: req.query.processor as string,
-        gen: req.query.gen as string,
-        socket: req.query.socket as string,
+        productId: req.query.productId as string,
+        cpuName: (req.query.cpuName as string),
+        brand: convertStringToArray(req.query.brand as string | string[]),
+        processor: convertStringToArray(req.query.processor as string | string[]),
+        gen: convertStringToArray(req.query.gen as string | string[]),
+        socket: convertStringToArray(req.query.socket as string | string[]),
+        igpu: convertStringToArray(req.query.igpu as string | string[]),
     }
-
+    console.log(query.brand);
     if (pageReq < 0) pageReq = 0
     if (sizeReq < 0) sizeReq = 0
 

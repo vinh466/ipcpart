@@ -1,4 +1,5 @@
 import { Models } from "@models/index";
+import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { where } from "sequelize";
 
@@ -8,16 +9,16 @@ export const allAccess = (req: Request, res: Response) => {
 
 export const getMouses = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
-    let sizeReq = parseInt(req.query.amount as string) || 50;
+    let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.mouseId as string,
+        productId: req.query.productId as string,
         productName: req.query.productName as string,
-        productBrand: req.query.productBrand as string,
-        trackingMethod: req.query.trackingMethod as string,
-        connectType: req.query.connectType as string,
-        dpi: parseInt(req.query.dpi as string),
-        hand: req.query.hand as string,
-        color: req.query.color as string,
+        productBrand: convertStringToArray(req.query.productBrand as string[]),
+        trackingMethod: convertStringToArray(req.query.trackingMethod as string[]),
+        connectType: convertStringToArray(req.query.connectType as string[]),
+        dpi: convertStringToArray(req.query.dpi as string[]),
+        hand: convertStringToArray(req.query.hand as string[]),
+        color: convertStringToArray(req.query.color as string[]),
     }
 
     if (pageReq < 0) pageReq = 0

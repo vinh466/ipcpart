@@ -2,13 +2,9 @@ import { Models } from "@models/index";
 import { NextFunction, Request, Response, Router } from "express";
 import authRoute from "./auth.route";
 import userRoute from "./user.route";
-import cpuRoute from "./products/cpu.route";
-import mainboardRoute from "./products/mainboard.route";
-import monitorRoute from "./products/monitor.route";
-import ramRoute from "./products/ram.route";
-import storageDriveRoute from "./products/storageDrive.route";
-import mouseRoute from "./products/mouse.route";
-import videoCardRoute from "./products/videocard.route";
+import productRoute from "./products/product.route";
+import { convertRegexpQuery, convertStringToArray } from "@utils/convert.util";
+import { RowDataPacket } from "mysql2";
 
 const Route = Router();
 
@@ -17,13 +13,19 @@ Route.get('/', (req: Request, res: Response, next: NextFunction) => {
 })
 Route.use('/user', userRoute);
 Route.use('/auth', authRoute);
-Route.use('/product/cpu', cpuRoute);
-Route.use('/product/mainboard', mainboardRoute);
-Route.use('/product/monitor', monitorRoute);
-Route.use('/product/ram', ramRoute);
-Route.use('/product/storage-drive', storageDriveRoute);
-Route.use('/product/mouse', mouseRoute);
-Route.use('/product/video-card', videoCardRoute);
+Route.use('/product', productRoute);
+Route.use('/test', async (req, res) => {
+    const sqlQuery = req.query.sql as string
+    console.log(sqlQuery);
+    const [result, meta] = await Models.Database.query<RowDataPacket[]>(sqlQuery);
+    var arr = []
+    console.log(result[0]);
+    for (const item of result) {
+        const [key, value] = Object.entries(item)[0]
+        arr.push(value)
+    }
+    res.status(200).json(arr)
+});
 
 
 export default Route;

@@ -1,9 +1,17 @@
 
 
 import { ProductId, Product } from "@type/models/product";
+import { convertRegexpQuery } from "@utils/convert.util";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
+import { SERVERNAME } from "server";
 
 interface StorageDriveModel extends Product {
+    productId: string;
+    productName: string;
+    productType: string;
+    productPhoto: string;
+    productBrand: string;
+    price: number;
     type: string;
     pricePerGb: number;
     capacity: string;
@@ -30,15 +38,15 @@ export default class User {
         where = <{
             productId?: string,
             productName?: string,
-            productBrand?: string,
-            type?: string,
-            capacity?: string,
-            maxRead?: string,
-            maxWrite?: string,
-            cache?: string,
-            form?: string,
-            interface?: string,
-            pricePerGb?: string,
+            productBrand?: string[],
+            type?: string[],
+            capacity?: string[],
+            maxRead?: string[],
+            maxWrite?: string[],
+            cache?: string[],
+            form?: string[],
+            interface?: string[],
+            pricePerGb?: string[],
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
@@ -70,15 +78,15 @@ export default class User {
         const whereQuery = ('' +
             (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
-            (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
-            (where.type ? `AND(\`storage_drives\`.\`type\`  LIKE '%${where.type}%')` : '') +
-            (where.capacity ? `AND(\`storage_drives\`.\`capacity\`  LIKE '%${where.capacity}%')` : '') +
-            (where.maxRead ? `AND(\`storage_drives\`.\`maxRead\`  LIKE '%${where.maxRead}%')` : '') +
-            (where.maxWrite ? `AND(\`storage_drives\`.\`maxWrite\`  LIKE '%${where.maxWrite}%')` : '') +
-            (where.cache ? `AND(\`storage_drives\`.\`cache\`  LIKE '%${where.cache}%')` : '') +
-            (where.form ? `AND(\`storage_drives\`.\`form\`  LIKE '%${where.form}%')` : '') +
-            (where.interface ? `AND(\`storage_drives\`.\`interface\`  LIKE '%${where.interface}%')` : '') +
-            (where.pricePerGb ? `AND(\`storage_drives\`.\`pricePerGb\`  LIKE '%${where.pricePerGb}%')` : '')
+            (where.productBrand ? `AND(\`product\`.\`productBrand\` REGEXP '${convertRegexpQuery(where.productBrand)}')` : '') +
+            (where.type ? `AND(\`storage_drives\`.\`type\`  REGEXP '${convertRegexpQuery(where.type)}')` : '') +
+            (where.capacity ? `AND(\`storage_drives\`.\`capacity\`  REGEXP '${convertRegexpQuery(where.capacity)}')` : '') +
+            (where.maxRead ? `AND(\`storage_drives\`.\`maxRead\`  REGEXP '${convertRegexpQuery(where.maxRead)}')` : '') +
+            (where.maxWrite ? `AND(\`storage_drives\`.\`maxWrite\`  REGEXP '${convertRegexpQuery(where.maxWrite)}')` : '') +
+            (where.cache ? `AND(\`storage_drives\`.\`cache\`  REGEXP '${convertRegexpQuery(where.cache)}')` : '') +
+            (where.form ? `AND(\`storage_drives\`.\`form\`  REGEXP '${convertRegexpQuery(where.form)}')` : '') +
+            (where.interface ? `AND(\`storage_drives\`.\`interface\`  REGEXP '${convertRegexpQuery(where.interface)}')` : '') +
+            (where.pricePerGb ? `AND(\`storage_drives\`.\`pricePerGb\`  REGEXP '${convertRegexpQuery(where.pricePerGb)}')` : '')
         );
         try {
             // Get total query record
@@ -93,10 +101,10 @@ export default class User {
             rawRecords = rawRecords.slice(start, start + 1 * pageSize)
 
             const records: StorageDriveModel[] = rawRecords;
-            // rawRecords.forEach(element => {
-            //     const obj = element as CpuModel
-            //     records.push(nestedConvert(obj as CpuModel))
-            // });
+            rawRecords.forEach(element => {
+                const obj = element as StorageDriveModel
+                obj.productPhoto = SERVERNAME + obj.productPhoto;
+            });
             return { records, total, currPage }
         } catch (err) {
             console.log(err)

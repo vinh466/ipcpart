@@ -1,4 +1,5 @@
 import { Models } from "@models/index";
+import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { where } from "sequelize";
 
@@ -8,17 +9,17 @@ export const allAccess = (req: Request, res: Response) => {
 
 export const getVideoCards = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
-    let sizeReq = parseInt(req.query.amount as string) || 50;
+    let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.videocardId as string,
+        productId: req.query.productId as string,
         productName: req.query.productName as string,
-        productBrand: req.query.productBrand as string,
-        chipsetName: req.query.chipsetName as string,
-        coreClock: req.query.coreClock as string,
-        boostClock: req.query.boostClock as string,
-        color: req.query.color as string,
-        length: parseInt(req.query.length as string),
-        memory: parseInt(req.query.memory as string),
+        productBrand: convertStringToArray(req.query.productBrand as string[]),
+        chipsetName: convertStringToArray(req.query.chipsetName as string[]),
+        coreClock: convertStringToArray(req.query.coreClock as string[]),
+        boostClock: convertStringToArray(req.query.boostClock as string[]),
+        color: convertStringToArray(req.query.color as string[]),
+        length: convertStringToArray(req.query.length as string[]),
+        memory: convertStringToArray(req.query.memory as string[]),
     }
 
     if (pageReq < 0) pageReq = 0

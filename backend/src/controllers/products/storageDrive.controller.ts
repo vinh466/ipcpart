@@ -1,4 +1,5 @@
 import { Models } from "@models/index";
+import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { where } from "sequelize";
 
@@ -8,19 +9,19 @@ export const allAccess = (req: Request, res: Response) => {
 
 export const getStorageDrives = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
-    let sizeReq = parseInt(req.query.amount as string) || 50;
+    let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.storageDriveId as string,
+        productId: req.query.productId as string,
         productName: req.query.productName as string,
-        productBrand: req.query.productBrand as string,
-        type: req.query.type as string,
-        capacity: req.query.capacity as string,
-        maxRead: req.query.maxRead as string,
-        maxWrite: req.query.maxWrite as string,
-        cache: req.query.cache as string,
-        form: req.query.form as string,
-        interface: req.query.interface as string,
-        pricePerGb: req.query.pricePerGb as string,
+        productBrand: convertStringToArray(req.query.productBrand as string[]),
+        type: convertStringToArray(req.query.type as string[]),
+        capacity: convertStringToArray(req.query.capacity as string[]),
+        maxRead: convertStringToArray(req.query.maxRead as string[]),
+        maxWrite: convertStringToArray(req.query.maxWrite as string[]),
+        cache: convertStringToArray(req.query.cache as string[]),
+        form: convertStringToArray(req.query.form as string[]),
+        interface: convertStringToArray(req.query.interface as string[]),
+        pricePerGb: convertStringToArray(req.query.pricePerGb as string[]),
     }
 
     if (pageReq < 0) pageReq = 0

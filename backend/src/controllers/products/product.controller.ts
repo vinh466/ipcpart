@@ -1,5 +1,4 @@
 import { Models } from "@models/index";
-import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { where } from "sequelize";
 
@@ -7,27 +6,20 @@ export const allAccess = (req: Request, res: Response) => {
     res.status(200).send("Public Content.");
 };
 
-export const getRams = async (req: Request, res: Response) => {
+export const getProducts = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
     let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.productId as string,
+        productId: req.query.id as string,
+        productType: req.query.type as string,
         productName: req.query.productName as string,
-        productBrand: convertStringToArray(req.query.productBrand as string[]),
-        capacity: convertStringToArray(req.query.capacity as string[]),
-        speed: convertStringToArray(req.query.speed as string[]),
-        standard: convertStringToArray(req.query.standard as string[]),
-        module: convertStringToArray(req.query.module as string[]),
-        color: convertStringToArray(req.query.color as string[]),
-        latency: convertStringToArray(req.query.latency as string[]),
-        cas: convertStringToArray(req.query.cas as string[]),
-        pricePerGb: convertStringToArray(req.query.pricePerGb as string[]),
+        productBrand: req.query.productBrand as string,
     }
 
     if (pageReq < 0) pageReq = 0
     if (sizeReq < 0) sizeReq = 0
 
-    let result = await Models.Ram.getRams({
+    let result = await Models.Product.getProducts({
         page: pageReq,
         pageSize: sizeReq,
         where: query

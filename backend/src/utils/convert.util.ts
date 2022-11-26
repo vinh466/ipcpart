@@ -55,3 +55,24 @@ export function nestedConvert<T>(obj: any, format = '.') {
     }
     return nestedOjb as T;
 }
+/**
+ * Convert req query String -> Array 
+ * @param object 
+ * @returns Array
+ */
+export const convertStringToArray = (object: string | string[] | undefined) => {
+    return (typeof object === 'string') ? Array(object) : object
+}
+/**
+ * Convert to WHERE REGEXP query in mysql from string array
+ * @param object 
+ * @returns 
+ */
+export const convertRegexpQuery = (array: string[]) => {
+    let result = ''
+    array.forEach((item, index) => {
+        if (index == 0) result += item;
+        else result += `|${item}`
+    })
+    return result;
+}

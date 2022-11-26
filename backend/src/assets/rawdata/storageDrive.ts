@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const storageDriveData = [{
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 970 Evo Plus',
-    imgUrl: '/images/products/stoagedrive/326881d073c1b667bd348893696c690e.256p.jpg',
+    imgUrl: '/images/products/storagedrive/326881d073c1b667bd348893696c690e.256p.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.109,
@@ -18,7 +18,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro',
-    imgUrl: '/images/products/stoagedrive/3b2a91588d1a28bfa1b0184fb7f1c0a1.256p.jpg',
+    imgUrl: '/images/products/storagedrive/3b2a91588d1a28bfa1b0184fb7f1c0a1.256p.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.109,
@@ -32,7 +32,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate Barracuda Compute',
-    imgUrl: '/images/products/stoagedrive/c7b5b7dacbecdcdd0e073b761193eef6.256p.jpg',
+    imgUrl: '/images/products/storagedrive/c7b5b7dacbecdcdd0e073b761193eef6.256p.jpg',
     brand: 'Seagate',
     capacity: '2 TB',
     pricePerGb: 0.025,
@@ -46,7 +46,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro',
-    imgUrl: '/images/products/stoagedrive/4e02c24a00f7b79a56489db2acbe3a9b.256p.jpg',
+    imgUrl: '/images/products/storagedrive/4e02c24a00f7b79a56489db2acbe3a9b.256p.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.120,
@@ -60,7 +60,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P2',
-    imgUrl: '/images/products/stoagedrive/1533ee97447785234f3c72a4ef452986.256p.jpg',
+    imgUrl: '/images/products/storagedrive/1533ee97447785234f3c72a4ef452986.256p.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.066,
@@ -74,7 +74,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 970 Evo Plus',
-    imgUrl: '/images/products/stoagedrive/13eff9fb98909107806f62c493d3775f.256p.jpg',
+    imgUrl: '/images/products/storagedrive/13eff9fb98909107806f62c493d3775f.256p.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.100,
@@ -88,7 +88,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P2',
-    imgUrl: '/images/products/stoagedrive/50d7356e9199580f1c35e7b8f01232ab.256p.jpg',
+    imgUrl: '/images/products/storagedrive/50d7356e9199580f1c35e7b8f01232ab.256p.jpg',
     brand: 'Crucial',
     capacity: '500 GB',
     pricePerGb: 0.080,
@@ -102,7 +102,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 Evo',
-    imgUrl: '/images/products/stoagedrive/31ITAX-GoIL.jpg',
+    imgUrl: '/images/products/storagedrive/31ITAX-GoIL.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.105,
@@ -116,7 +116,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'TEAMGROUP QX',
-    imgUrl: '/images/products/stoagedrive/6b09323ae812fa126c4d87c6899be7ed.256p.jpg',
+    imgUrl: '/images/products/storagedrive/6b09323ae812fa126c4d87c6899be7ed.256p.jpg',
     brand: 'TEAMGROUP',
     capacity: '15.3 TB',
     pricePerGb: 0.188,
@@ -130,7 +130,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 970 Evo Plus',
-    imgUrl: '/images/products/stoagedrive/25a1bf52562913032cce0b7a71b9e323.256p.jpg',
+    imgUrl: '/images/products/storagedrive/25a1bf52562913032cce0b7a71b9e323.256p.jpg',
     brand: 'Samsung',
     capacity: '500 GB',
     pricePerGb: 0.150,
@@ -144,7 +144,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue SN570',
-    imgUrl: '/images/products/stoagedrive/da6c2cb6e4d17032dbb3da790499b57f.256p.jpg',
+    imgUrl: '/images/products/storagedrive/da6c2cb6e4d17032dbb3da790499b57f.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.080,
@@ -158,7 +158,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Silicon Power A60',
-    imgUrl: '/images/products/stoagedrive/229130faab065e7908c58fd694f78e1a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/229130faab065e7908c58fd694f78e1a.256p.jpg',
     brand: 'Silicon',
     capacity: '1 TB',
     pricePerGb: 0,
@@ -172,7 +172,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN770',
-    imgUrl: '/images/products/stoagedrive/8fcb88c883df1ee3563538df639a08c8.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8fcb88c883df1ee3563538df639a08c8.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.097,
@@ -186,7 +186,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Sabrent Rocket 4 Plus',
-    imgUrl: '/images/products/stoagedrive/41OMsuF3ZKL.jpg',
+    imgUrl: '/images/products/storagedrive/41OMsuF3ZKL.jpg',
     brand: 'Sabrent',
     capacity: '8 TB',
     pricePerGb: 0.187,
@@ -200,7 +200,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980',
-    imgUrl: '/images/products/stoagedrive/2aff821ed66963cb32fb0c71b093eccc.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2aff821ed66963cb32fb0c71b093eccc.256p.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.099,
@@ -214,7 +214,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Caviar Blue',
-    imgUrl: '/images/products/stoagedrive/daf819b70eccf7fec275bd65e3fe2b6a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/daf819b70eccf7fec275bd65e3fe2b6a.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.040,
@@ -228,7 +228,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 Evo',
-    imgUrl: '/images/products/stoagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.090,
@@ -242,7 +242,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate Barracuda Compute',
-    imgUrl: '/images/products/stoagedrive/41V7Idv87eL.jpg',
+    imgUrl: '/images/products/storagedrive/41V7Idv87eL.jpg',
     brand: 'Seagate',
     capacity: '4 TB',
     pricePerGb: 0,
@@ -256,7 +256,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'TEAMGROUP MP33',
-    imgUrl: '/images/products/stoagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
     brand: 'TEAMGROUP',
     capacity: '1 TB',
     pricePerGb: 0.063,
@@ -270,7 +270,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN770',
-    imgUrl: '/images/products/stoagedrive/310UZVOtlfL.jpg',
+    imgUrl: '/images/products/storagedrive/310UZVOtlfL.jpg',
     brand: 'Western Digital',
     capacity: '2 TB',
     pricePerGb: 0.090,
@@ -284,7 +284,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue SN570',
-    imgUrl: '/images/products/stoagedrive/820f4e4ac27af85645afeaabc7b82f04.256p.jpg',
+    imgUrl: '/images/products/storagedrive/820f4e4ac27af85645afeaabc7b82f04.256p.jpg',
     brand: 'Western Digital',
     capacity: '500 GB',
     pricePerGb: 0.086,
@@ -298,7 +298,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston A400',
-    imgUrl: '/images/products/stoagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
+    imgUrl: '/images/products/storagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
     brand: 'Kingston',
     capacity: '240 GB',
     pricePerGb: 0.083,
@@ -312,7 +312,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate BarraCuda',
-    imgUrl: '/images/products/stoagedrive/41wwwZwF7oL.jpg',
+    imgUrl: '/images/products/storagedrive/41wwwZwF7oL.jpg',
     brand: 'Seagate',
     capacity: '1 TB',
     pricePerGb: 0.045,
@@ -326,7 +326,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980',
-    imgUrl: '/images/products/stoagedrive/ca0b46376f072d2483c385bad50c6310.256p.jpg',
+    imgUrl: '/images/products/storagedrive/ca0b46376f072d2483c385bad50c6310.256p.jpg',
     brand: 'Samsung',
     capacity: '500 GB',
     pricePerGb: 0.100,
@@ -340,7 +340,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'TEAMGROUP MP33',
-    imgUrl: '/images/products/stoagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
     brand: 'TEAMGROUP',
     capacity: '512 GB',
     pricePerGb: 0.062,
@@ -354,7 +354,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 Evo',
-    imgUrl: '/images/products/stoagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
     brand: 'Samsung',
     capacity: '4 TB',
     pricePerGb: 0.095,
@@ -368,7 +368,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial MX500',
-    imgUrl: '/images/products/stoagedrive/2983fbcd487b315b31855399829b532c.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2983fbcd487b315b31855399829b532c.256p.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.085,
@@ -382,7 +382,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro',
-    imgUrl: '/images/products/stoagedrive/81d258654f0eb603dc240de6cbca9754.256p.jpg',
+    imgUrl: '/images/products/storagedrive/81d258654f0eb603dc240de6cbca9754.256p.jpg',
     brand: 'Samsung',
     capacity: '500 GB',
     pricePerGb: 0.160,
@@ -396,7 +396,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue',
-    imgUrl: '/images/products/stoagedrive/0b9bfd76b0d511a6eff3730d12d5f95c.256p.jpg',
+    imgUrl: '/images/products/storagedrive/0b9bfd76b0d511a6eff3730d12d5f95c.256p.jpg',
     brand: 'Western Digital',
     capacity: '2 TB',
     pricePerGb: 0.025,
@@ -410,7 +410,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P2',
-    imgUrl: '/images/products/stoagedrive/b6d18344cd27c22109c45e54a9c7d86d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/b6d18344cd27c22109c45e54a9c7d86d.256p.jpg',
     brand: 'Crucial',
     capacity: '2 TB',
     pricePerGb: 0.080,
@@ -424,7 +424,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston NV2',
-    imgUrl: '/images/products/stoagedrive/7aa3028d0fc04e0ee3323f474bd349bd.256p.jpg',
+    imgUrl: '/images/products/storagedrive/7aa3028d0fc04e0ee3323f474bd349bd.256p.jpg',
     brand: 'Kingston',
     capacity: '1 TB',
     pricePerGb: 0.070,
@@ -438,7 +438,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850',
-    imgUrl: '/images/products/stoagedrive/d54938a88ad375113bb71ada129e2e8c.256p.jpg',
+    imgUrl: '/images/products/storagedrive/d54938a88ad375113bb71ada129e2e8c.256p.jpg',
     brand: 'Western Digital',
     capacity: '2 TB',
     pricePerGb: 0.110,
@@ -452,7 +452,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate BarraCuda',
-    imgUrl: '/images/products/stoagedrive/f2b81ef4f53b4566edfd5a5c7c60977d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/f2b81ef4f53b4566edfd5a5c7c60977d.256p.jpg',
     brand: 'Seagate',
     capacity: '4 TB',
     pricePerGb: 0.016,
@@ -466,7 +466,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 Evo',
-    imgUrl: '/images/products/stoagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2c576ecaedba7428ac231ac4f1e12a4d.256p.jpg',
     brand: 'Samsung',
     capacity: '500 GB',
     pricePerGb: 0.100,
@@ -480,7 +480,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 QVO',
-    imgUrl: '/images/products/stoagedrive/29b838814626cac9b060a2d2c0a293cd.256p.jpg',
+    imgUrl: '/images/products/storagedrive/29b838814626cac9b060a2d2c0a293cd.256p.jpg',
     brand: 'Samsung',
     capacity: '8 TB',
     pricePerGb: 0.086,
@@ -494,7 +494,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Purple Pro',
-    imgUrl: '/images/products/stoagedrive/8e32fbeaf3794a1547303d9d5e6b158a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8e32fbeaf3794a1547303d9d5e6b158a.256p.jpg',
     brand: 'Western Digital',
     capacity: '22 TB',
     pricePerGb: 0.027,
@@ -508,7 +508,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850',
-    imgUrl: '/images/products/stoagedrive/67ae19fe7847cb5bf67f4448e717e831.256p.jpg',
+    imgUrl: '/images/products/storagedrive/67ae19fe7847cb5bf67f4448e717e831.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.148,
@@ -522,7 +522,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN770',
-    imgUrl: '/images/products/stoagedrive/310UZVOtlfL.jpg',
+    imgUrl: '/images/products/storagedrive/310UZVOtlfL.jpg',
     brand: 'Western Digital',
     capacity: '500 GB',
     pricePerGb: 0.100,
@@ -536,7 +536,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P3 Plus',
-    imgUrl: '/images/products/stoagedrive/2830bf3ba317c794ccde742efe4304be.256p.jpg',
+    imgUrl: '/images/products/storagedrive/2830bf3ba317c794ccde742efe4304be.256p.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.080,
@@ -550,7 +550,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850X',
-    imgUrl: '/images/products/stoagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
     brand: 'Western Digital',
     capacity: '4 TB',
     pricePerGb: 0.124,
@@ -564,7 +564,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P5 Plus',
-    imgUrl: '/images/products/stoagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
+    imgUrl: '/images/products/storagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.110,
@@ -578,7 +578,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston NV2',
-    imgUrl: '/images/products/stoagedrive/f1af66b97ac908b094775b859ce9d33e.256p.jpg',
+    imgUrl: '/images/products/storagedrive/f1af66b97ac908b094775b859ce9d33e.256p.jpg',
     brand: 'Kingston',
     capacity: '2 TB',
     pricePerGb: 0.065,
@@ -592,7 +592,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro w/Heatsink',
-    imgUrl: '/images/products/stoagedrive/31ohGkrwpEL.jpg',
+    imgUrl: '/images/products/storagedrive/31ohGkrwpEL.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.110,
@@ -606,7 +606,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850X',
-    imgUrl: '/images/products/stoagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
     brand: 'Western Digital',
     capacity: '2 TB',
     pricePerGb: 0.115,
@@ -620,7 +620,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial MX500',
-    imgUrl: '/images/products/stoagedrive/24739d2c05e810fd8c8d6883e6ed10fe.256p.jpg',
+    imgUrl: '/images/products/storagedrive/24739d2c05e810fd8c8d6883e6ed10fe.256p.jpg',
     brand: 'Crucial',
     capacity: '2 TB',
     pricePerGb: 0.086,
@@ -634,7 +634,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate IronWolf Pro',
-    imgUrl: '/images/products/stoagedrive/01f719cd8e7e03916233fb39a9c5ca26.256p.jpg',
+    imgUrl: '/images/products/storagedrive/01f719cd8e7e03916233fb39a9c5ca26.256p.jpg',
     brand: 'Seagate',
     capacity: '4 TB',
     pricePerGb: 0.031,
@@ -648,7 +648,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 970 Evo Plus',
-    imgUrl: '/images/products/stoagedrive/25a1bf52562913032cce0b7a71b9e323.256p.jpg',
+    imgUrl: '/images/products/storagedrive/25a1bf52562913032cce0b7a71b9e323.256p.jpg',
     brand: 'Samsung',
     capacity: '250 GB',
     pricePerGb: 0.220,
@@ -662,7 +662,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate FireCuda 530',
-    imgUrl: '/images/products/stoagedrive/45bb5064d2cbc808e4be407cab78f026.256p.jpg',
+    imgUrl: '/images/products/storagedrive/45bb5064d2cbc808e4be407cab78f026.256p.jpg',
     brand: 'Seagate',
     capacity: '4 TB',
     pricePerGb: 0.137,
@@ -676,7 +676,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 990 Pro',
-    imgUrl: '/images/products/stoagedrive/31LCbsmH4DL.jpg',
+    imgUrl: '/images/products/storagedrive/31LCbsmH4DL.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.145,
@@ -690,7 +690,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P5 Plus',
-    imgUrl: '/images/products/stoagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
+    imgUrl: '/images/products/storagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
     brand: 'Crucial',
     capacity: '2 TB',
     pricePerGb: 0.100,
@@ -704,7 +704,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate IronWolf Pro',
-    imgUrl: '/images/products/stoagedrive/78896574dfc1d9ca0e1ecf95b8a0ef2a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/78896574dfc1d9ca0e1ecf95b8a0ef2a.256p.jpg',
     brand: 'Seagate',
     capacity: '20 TB',
     pricePerGb: 0.020,
@@ -718,7 +718,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'SK Hynix Platinum P41',
-    imgUrl: '/images/products/stoagedrive/31TAUSyRkcL.jpg',
+    imgUrl: '/images/products/storagedrive/31TAUSyRkcL.jpg',
     brand: 'SK Hynix',
     capacity: '2 TB',
     pricePerGb: 0.130,
@@ -732,7 +732,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston KC3000',
-    imgUrl: '/images/products/stoagedrive/31p3IUZV+ZL.jpg',
+    imgUrl: '/images/products/storagedrive/31p3IUZV+ZL.jpg',
     brand: 'Kingston',
     capacity: '1.024 TB',
     pricePerGb: 0.091,
@@ -746,7 +746,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Intel 750',
-    imgUrl: '/images/products/stoagedrive/881bf7624b22b2724a28c53ef21bfaa0.256p.jpg',
+    imgUrl: '/images/products/storagedrive/881bf7624b22b2724a28c53ef21bfaa0.256p.jpg',
     brand: 'Intel',
     capacity: '1.2 TB',
     pricePerGb: 2.074,
@@ -760,7 +760,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital WD_BLACK',
-    imgUrl: '/images/products/stoagedrive/ec18382394ec2952a8e9d49c60848c98.256p.jpg',
+    imgUrl: '/images/products/storagedrive/ec18382394ec2952a8e9d49c60848c98.256p.jpg',
     brand: 'Western Digital',
     capacity: '4 TB',
     pricePerGb: 0.032,
@@ -774,7 +774,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Silicon Power P34A60',
-    imgUrl: '/images/products/stoagedrive/229130faab065e7908c58fd694f78e1a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/229130faab065e7908c58fd694f78e1a.256p.jpg',
     brand: 'Silicon',
     capacity: '512 GB',
     pricePerGb: 0.065,
@@ -788,7 +788,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850X',
-    imgUrl: '/images/products/stoagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8e6dbae8a0f3c6572216c8758ce5a0b5.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.135,
@@ -802,7 +802,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Sabrent Rocket 4.0',
-    imgUrl: '/images/products/stoagedrive/413arpEb7NL.jpg',
+    imgUrl: '/images/products/storagedrive/413arpEb7NL.jpg',
     brand: 'Sabrent',
     capacity: '1 TB',
     pricePerGb: 0.100,
@@ -816,7 +816,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate FireCuda 530',
-    imgUrl: '/images/products/stoagedrive/a82a914921d63165f8a7b096089ff91f.256p.jpg',
+    imgUrl: '/images/products/storagedrive/a82a914921d63165f8a7b096089ff91f.256p.jpg',
     brand: 'Seagate',
     capacity: '1 TB',
     pricePerGb: 0.120,
@@ -830,7 +830,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate Barracuda Compute',
-    imgUrl: '/images/products/stoagedrive/41aEb8InacL.jpg',
+    imgUrl: '/images/products/storagedrive/41aEb8InacL.jpg',
     brand: 'Seagate',
     capacity: '8 TB',
     pricePerGb: 0.015,
@@ -844,7 +844,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston A400',
-    imgUrl: '/images/products/stoagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
+    imgUrl: '/images/products/storagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
     brand: 'Kingston',
     capacity: '480 GB',
     pricePerGb: 0.062,
@@ -858,7 +858,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P3',
-    imgUrl: '/images/products/stoagedrive/8c5042086b6c6ab10aca89e29fa85f08.256p.jpg',
+    imgUrl: '/images/products/storagedrive/8c5042086b6c6ab10aca89e29fa85f08.256p.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.074,
@@ -872,7 +872,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Gigabyte AORUS Gen4',
-    imgUrl: '/images/products/stoagedrive/d59265eb1c1a742d7b7510e8259924db.256p.jpg',
+    imgUrl: '/images/products/storagedrive/d59265eb1c1a742d7b7510e8259924db.256p.jpg',
     brand: 'Gigabyte',
     capacity: '1 TB',
     pricePerGb: 0,
@@ -886,7 +886,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial BX500',
-    imgUrl: '/images/products/stoagedrive/41Fi4L5w9yL.jpg',
+    imgUrl: '/images/products/storagedrive/41Fi4L5w9yL.jpg',
     brand: 'Crucial',
     capacity: '1 TB',
     pricePerGb: 0.062,
@@ -900,7 +900,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate FireCuda 530',
-    imgUrl: '/images/products/stoagedrive/a82a914921d63165f8a7b096089ff91f.256p.jpg',
+    imgUrl: '/images/products/storagedrive/a82a914921d63165f8a7b096089ff91f.256p.jpg',
     brand: 'Seagate',
     capacity: '2 TB',
     pricePerGb: 0.120,
@@ -914,7 +914,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue',
-    imgUrl: '/images/products/stoagedrive/84d21e519b342daa8e8d2326b7c89e19.256p.jpg',
+    imgUrl: '/images/products/storagedrive/84d21e519b342daa8e8d2326b7c89e19.256p.jpg',
     brand: 'Western Digital',
     capacity: '4 TB',
     pricePerGb: 0.016,
@@ -928,7 +928,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Red Pro',
-    imgUrl: '/images/products/stoagedrive/1ac710bded46038988de0ebfa909355a.256p.jpg',
+    imgUrl: '/images/products/storagedrive/1ac710bded46038988de0ebfa909355a.256p.jpg',
     brand: 'Western Digital',
     capacity: '22 TB',
     pricePerGb: 0.027,
@@ -942,7 +942,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston KC3000',
-    imgUrl: '/images/products/stoagedrive/31p3IUZV+ZL.jpg',
+    imgUrl: '/images/products/storagedrive/31p3IUZV+ZL.jpg',
     brand: 'Kingston',
     capacity: '2.048 TB',
     pricePerGb: 0.100,
@@ -956,7 +956,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston NV1',
-    imgUrl: '/images/products/stoagedrive/4b38e34b765a81eddcd84d5450a7f353.256p.jpg',
+    imgUrl: '/images/products/storagedrive/4b38e34b765a81eddcd84d5450a7f353.256p.jpg',
     brand: 'Kingston',
     capacity: '1 TB',
     pricePerGb: 0.076,
@@ -970,7 +970,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate BarraCuda',
-    imgUrl: '/images/products/stoagedrive/51jzvyPoV6L.jpg',
+    imgUrl: '/images/products/storagedrive/51jzvyPoV6L.jpg',
     brand: 'Seagate',
     capacity: '1 TB',
     pricePerGb: 0.025,
@@ -984,7 +984,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial MX500',
-    imgUrl: '/images/products/stoagedrive/d9cccb47a1d6da491f3c6e74ad51e80b.256p.jpg',
+    imgUrl: '/images/products/storagedrive/d9cccb47a1d6da491f3c6e74ad51e80b.256p.jpg',
     brand: 'Crucial',
     capacity: '500 GB',
     pricePerGb: 0.086,
@@ -998,7 +998,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Leven JS600',
-    imgUrl: '/images/products/stoagedrive/41uw1WhRe1L.jpg',
+    imgUrl: '/images/products/storagedrive/41uw1WhRe1L.jpg',
     brand: 'Leven',
     capacity: '64 GB',
     pricePerGb: 0.172,
@@ -1012,7 +1012,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Intel DC P3608',
-    imgUrl: '/images/products/stoagedrive/416H4YJElJL.jpg',
+    imgUrl: '/images/products/storagedrive/416H4YJElJL.jpg',
     brand: 'Intel',
     capacity: '4 TB',
     pricePerGb: 0,
@@ -1026,7 +1026,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue',
-    imgUrl: '/images/products/stoagedrive/a3b09866e3716566572bf9a13792cc85.256p.jpg',
+    imgUrl: '/images/products/storagedrive/a3b09866e3716566572bf9a13792cc85.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.088,
@@ -1040,7 +1040,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 860 Evo',
-    imgUrl: '/images/products/stoagedrive/41qR7C253KL.jpg',
+    imgUrl: '/images/products/storagedrive/41qR7C253KL.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.139,
@@ -1054,7 +1054,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Intel 660p',
-    imgUrl: '/images/products/stoagedrive/72ac6b04347d22c2592029d4a49bc5ed.256p.jpg',
+    imgUrl: '/images/products/storagedrive/72ac6b04347d22c2592029d4a49bc5ed.256p.jpg',
     brand: 'Intel',
     capacity: '1.02 TB',
     pricePerGb: 0.078,
@@ -1068,7 +1068,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Silicon Power A60',
-    imgUrl: '/images/products/stoagedrive/0502d0e9177bf57189386f69ba859b0e.256p.jpg',
+    imgUrl: '/images/products/storagedrive/0502d0e9177bf57189386f69ba859b0e.256p.jpg',
     brand: 'Silicon',
     capacity: '2 TB',
     pricePerGb: 0.060,
@@ -1082,7 +1082,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston NV1',
-    imgUrl: '/images/products/stoagedrive/4b38e34b765a81eddcd84d5450a7f353.256p.jpg',
+    imgUrl: '/images/products/storagedrive/4b38e34b765a81eddcd84d5450a7f353.256p.jpg',
     brand: 'Kingston',
     capacity: '500 GB',
     pricePerGb: 0.085,
@@ -1096,7 +1096,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Silicon Power A55',
-    imgUrl: '/images/products/stoagedrive/abd3fcbc74da1452f2d459e37ff9a107.256p.jpg',
+    imgUrl: '/images/products/storagedrive/abd3fcbc74da1452f2d459e37ff9a107.256p.jpg',
     brand: 'Silicon',
     capacity: '512 GB',
     pricePerGb: 0.053,
@@ -1110,7 +1110,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN850',
-    imgUrl: '/images/products/stoagedrive/67ae19fe7847cb5bf67f4448e717e831.256p.jpg',
+    imgUrl: '/images/products/storagedrive/67ae19fe7847cb5bf67f4448e717e831.256p.jpg',
     brand: 'Western Digital',
     capacity: '500 GB',
     pricePerGb: 0.140,
@@ -1124,7 +1124,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P2',
-    imgUrl: '/images/products/stoagedrive/ce4fd57ee655bf400a82aa84f6ec7ac5.256p.jpg',
+    imgUrl: '/images/products/storagedrive/ce4fd57ee655bf400a82aa84f6ec7ac5.256p.jpg',
     brand: 'Crucial',
     capacity: '250 GB',
     pricePerGb: 0.140,
@@ -1138,7 +1138,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Timetec 35TTFP6PCIE',
-    imgUrl: '/images/products/stoagedrive/413qz+IDzHL.jpg',
+    imgUrl: '/images/products/storagedrive/413qz+IDzHL.jpg',
     brand: 'Timetec',
     capacity: '1 TB',
     pricePerGb: 0,
@@ -1152,7 +1152,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'TEAMGROUP MP34',
-    imgUrl: '/images/products/stoagedrive/249d7ecea46737d175b4638a78b16f9f.256p.jpg',
+    imgUrl: '/images/products/storagedrive/249d7ecea46737d175b4638a78b16f9f.256p.jpg',
     brand: 'TEAMGROUP',
     capacity: '1 TB',
     pricePerGb: 0.065,
@@ -1166,7 +1166,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Seagate FireCuda 520',
-    imgUrl: '/images/products/stoagedrive/3a7b9a069c847e509654192111742930.256p.jpg',
+    imgUrl: '/images/products/storagedrive/3a7b9a069c847e509654192111742930.256p.jpg',
     brand: 'Seagate',
     capacity: '2 TB',
     pricePerGb: 0.090,
@@ -1180,7 +1180,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Blue SN570',
-    imgUrl: '/images/products/stoagedrive/373f32edfb3cefa279ed83823706f39e.256p.jpg',
+    imgUrl: '/images/products/storagedrive/373f32edfb3cefa279ed83823706f39e.256p.jpg',
     brand: 'Western Digital',
     capacity: '2 TB',
     pricePerGb: 0.079,
@@ -1194,7 +1194,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro',
-    imgUrl: '/images/products/stoagedrive/0031b30a7f5958ebe231983fb79d17ec.256p.jpg',
+    imgUrl: '/images/products/storagedrive/0031b30a7f5958ebe231983fb79d17ec.256p.jpg',
     brand: 'Samsung',
     capacity: '250 GB',
     pricePerGb: 0.320,
@@ -1208,7 +1208,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Black SN750',
-    imgUrl: '/images/products/stoagedrive/0e711f3edb98f9680cc528271201d8d2.256p.jpg',
+    imgUrl: '/images/products/storagedrive/0e711f3edb98f9680cc528271201d8d2.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.139,
@@ -1222,7 +1222,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Silicon Power A55',
-    imgUrl: '/images/products/stoagedrive/41gXg8ABtML.jpg',
+    imgUrl: '/images/products/storagedrive/41gXg8ABtML.jpg',
     brand: 'Silicon',
     capacity: '1 TB',
     pricePerGb: 0.051,
@@ -1236,7 +1236,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston Fury Renegade',
-    imgUrl: '/images/products/stoagedrive/4a39091cc852e56b16b02febdadeb3a7.256p.jpg',
+    imgUrl: '/images/products/storagedrive/4a39091cc852e56b16b02febdadeb3a7.256p.jpg',
     brand: 'Kingston',
     capacity: '1 TB',
     pricePerGb: 0.115,
@@ -1250,7 +1250,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P3',
-    imgUrl: '/images/products/stoagedrive/5b0cd518feacc76794f17f75745b2907.256p.jpg',
+    imgUrl: '/images/products/storagedrive/5b0cd518feacc76794f17f75745b2907.256p.jpg',
     brand: 'Crucial',
     capacity: '500 GB',
     pricePerGb: 0.078,
@@ -1264,7 +1264,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Intel 670p',
-    imgUrl: '/images/products/stoagedrive/dcf368b5092373d4759de1ee874b9e79.256p.jpg',
+    imgUrl: '/images/products/storagedrive/dcf368b5092373d4759de1ee874b9e79.256p.jpg',
     brand: 'Intel',
     capacity: '1 TB',
     pricePerGb: 0.070,
@@ -1278,7 +1278,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Sabrent Rocket 4 Plus',
-    imgUrl: '/images/products/stoagedrive/41uuRjml3QL.jpg',
+    imgUrl: '/images/products/storagedrive/41uuRjml3QL.jpg',
     brand: 'Sabrent',
     capacity: '4 TB',
     pricePerGb: 0.175,
@@ -1292,7 +1292,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 860 Evo',
-    imgUrl: '/images/products/stoagedrive/31OUniJjN+L.jpg',
+    imgUrl: '/images/products/storagedrive/31OUniJjN+L.jpg',
     brand: 'Samsung',
     capacity: '500 GB',
     pricePerGb: 0.150,
@@ -1306,7 +1306,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'TEAMGROUP MP33',
-    imgUrl: '/images/products/stoagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
+    imgUrl: '/images/products/storagedrive/567dfd409067c0a10aa67fc3c720c46d.256p.jpg',
     brand: 'TEAMGROUP',
     capacity: '256 GB',
     pricePerGb: 0.080,
@@ -1320,7 +1320,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Western Digital Green SN350',
-    imgUrl: '/images/products/stoagedrive/57b87f0a167a06e77da78f9812f28367.256p.jpg',
+    imgUrl: '/images/products/storagedrive/57b87f0a167a06e77da78f9812f28367.256p.jpg',
     brand: 'Western Digital',
     capacity: '1 TB',
     pricePerGb: 0.065,
@@ -1334,7 +1334,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 980 Pro w/Heatsink',
-    imgUrl: '/images/products/stoagedrive/117a93ff22c8f38b2bfb8ff00b0b4d78.256p.jpg',
+    imgUrl: '/images/products/storagedrive/117a93ff22c8f38b2bfb8ff00b0b4d78.256p.jpg',
     brand: 'Samsung',
     capacity: '1 TB',
     pricePerGb: 0.150,
@@ -1348,7 +1348,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Samsung 870 QVO',
-    imgUrl: '/images/products/stoagedrive/29b838814626cac9b060a2d2c0a293cd.256p.jpg',
+    imgUrl: '/images/products/storagedrive/29b838814626cac9b060a2d2c0a293cd.256p.jpg',
     brand: 'Samsung',
     capacity: '2 TB',
     pricePerGb: 0.085,
@@ -1362,7 +1362,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston NV2',
-    imgUrl: '/images/products/stoagedrive/b95d0c7234714c4d7bb0f246c23cd3b9.256p.jpg',
+    imgUrl: '/images/products/storagedrive/b95d0c7234714c4d7bb0f246c23cd3b9.256p.jpg',
     brand: 'Kingston',
     capacity: '500 GB',
     pricePerGb: 0.084,
@@ -1376,7 +1376,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Kingston A400',
-    imgUrl: '/images/products/stoagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
+    imgUrl: '/images/products/storagedrive/97e2bd828644767c8a80b71f8cb14743.256p.jpg',
     brand: 'Kingston',
     capacity: '120 GB',
     pricePerGb: 0.158,
@@ -1390,7 +1390,7 @@ export const storageDriveData = [{
 }, {
     storageDriveId: uuidv4(),
     storageDriveName: 'Crucial P5 Plus',
-    imgUrl: '/images/products/stoagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
+    imgUrl: '/images/products/storagedrive/43c2b68eaed9cd66fa6d7d71ee8e2756.256p.jpg',
     brand: 'Crucial',
     capacity: '500 GB',
     pricePerGb: 0.146,

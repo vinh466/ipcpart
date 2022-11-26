@@ -1,9 +1,17 @@
 
 
 import { ProductId, Product } from "@type/models/product";
+import { convertRegexpQuery } from "@utils/convert.util";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
+import { SERVERNAME } from "server";
 
 interface VideoCardModel extends Product {
+    productId: string;
+    productName: string;
+    productType: string;
+    productPhoto: string;
+    productBrand: string;
+    price: number;
     chipsetName: string;
     coreClock: number;
     boostClock: number;
@@ -26,13 +34,13 @@ export default class User {
         where = <{
             productId?: string,
             productName?: string,
-            productBrand?: string,
-            chipsetName?: string,
-            coreClock?: string,
-            boostClock?: string,
-            color?: string,
-            length?: number,
-            memory?: number,
+            productBrand?: string[],
+            chipsetName?: string[],
+            coreClock?: string[],
+            boostClock?: string[],
+            color?: string[],
+            length?: string[],
+            memory?: string[],
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
@@ -62,13 +70,13 @@ export default class User {
         const whereQuery = ('' +
             (where.productId ? `AND(\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND(\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
-            (where.productBrand ? `AND(\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
-            (where.chipsetName ? `AND(\`video_cards\`.\`chipsetName\`  LIKE '%${where.chipsetName}%')` : '') +
-            (where.coreClock ? `AND(\`video_cards\`.\`coreClock\`  LIKE '%${where.coreClock}%')` : '') +
-            (where.boostClock ? `AND(\`video_cards\`.\`boostClock\`  LIKE '%${where.boostClock}%')` : '') +
-            (where.color ? `AND(\`video_cards\`.\`color\`  LIKE '%${where.color}%')` : '') +
-            (where.length ? `AND(\`video_cards\`.\`length\`  LIKE '%${where.length}%')` : '') +
-            (where.memory ? `AND(\`video_cards\`.\`memory\`  LIKE '%${where.memory}%')` : '')
+            (where.productBrand ? `AND(\`product\`.\`productBrand\` REGEXP '${convertRegexpQuery(where.productBrand)}')` : '') +
+            (where.chipsetName ? `AND(\`video_cards\`.\`chipsetName\`  REGEXP '${convertRegexpQuery(where.chipsetName)}')` : '') +
+            (where.coreClock ? `AND(\`video_cards\`.\`coreClock\`  REGEXP '${convertRegexpQuery(where.coreClock)}')` : '') +
+            (where.boostClock ? `AND(\`video_cards\`.\`boostClock\`  REGEXP '${convertRegexpQuery(where.boostClock)}')` : '') +
+            (where.color ? `AND(\`video_cards\`.\`color\`  REGEXP '${convertRegexpQuery(where.color)}')` : '') +
+            (where.length ? `AND(\`video_cards\`.\`length\`  REGEXP '${convertRegexpQuery(where.length)}')` : '') +
+            (where.memory ? `AND(\`video_cards\`.\`memory\`  REGEXP '${convertRegexpQuery(where.memory)}')` : '')
         );
         try {
             // Get total query record
@@ -83,10 +91,10 @@ export default class User {
             rawRecords = rawRecords.slice(start, start + 1 * pageSize)
 
             const records: VideoCardModel[] = rawRecords;
-            // rawRecords.forEach(element => {
-            //     const obj = element as CpuModel
-            //     records.push(nestedConvert(obj as CpuModel))
-            // });
+            rawRecords.forEach(element => {
+                const obj = element as VideoCardModel
+                obj.productPhoto = SERVERNAME + obj.productPhoto;
+            });
             return { records, total, currPage }
         } catch (err) {
             console.log(err)

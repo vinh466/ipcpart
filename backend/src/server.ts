@@ -4,6 +4,7 @@ import App from './app';
 import { migration } from '@models/migration';
 dotenv.config();
 const PORT = process.env.PORT || 3005;
+export const SERVERNAME = process.env.SERVERNAME || 'localhost';
 
 
 (async () => {

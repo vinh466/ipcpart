@@ -730,7 +730,7 @@ export const videCardData = [{
     videoCardId: uuidv4(),
     videoCardName: 'MSI GAMING X TRIO',
     brand: 'MSI',
-    imgUrl: '/images/products/videocard/41Z16iQU+bL.jpg',
+    imgUrl: '/images/products/videocard/41Z16iQUbL.jpg',
     chipsetName: 'Radeon RX 6950 XT',
     memory: 16,
     coreClock: 1890,

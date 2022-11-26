@@ -1,9 +1,17 @@
 
 
 import { ProductId, Product } from "@type/models/product";
+import { convertRegexpQuery } from "@utils/convert.util";
 import { Connection, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
+import { SERVERNAME } from "server";
 
 interface MouseModel extends Product {
+    productId: string;
+    productName: string;
+    productType: string;
+    productPhoto: string;
+    productBrand: string;
+    price: number;
     trackingMethod: string;
     conectType: string;
     dpi: number;
@@ -27,12 +35,12 @@ export default class User {
         where = <{
             productId?: string,
             productName?: string,
-            productBrand?: string,
-            trackingMethod?: string,
-            connectType?: string,
-            dpi?: number,
-            hand?: string,
-            color?: string,
+            productBrand?: string[],
+            trackingMethod?: string[],
+            connectType?: string[],
+            dpi?: string[],
+            hand?: string[],
+            color?: string[],
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
@@ -61,12 +69,12 @@ export default class User {
         const whereQuery = ('' +
             (where.productId ? `AND (\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.productName ? `AND (\`product\`.\`productName\` LIKE '%${where.productName}%')` : '') +
-            (where.productBrand ? `AND (\`product\`.\`productBrand\` LIKE '%${where.productBrand}%')` : '') +
-            (where.trackingMethod ? `AND (\`mouses\`.\`trackingMethod\` LIKE '%${where.trackingMethod}%')` : '') +
-            (where.connectType ? `AND (\`mouses\`.\`connectType\` LIKE '%${where.connectType}%')` : '') +
-            (where.dpi ? `AND (\`mouses\`.\`dpi\` LIKE '%${where.dpi}%')` : '') +
-            (where.hand ? `AND (\`mouses\`.\`hand\` LIKE '%${where.hand}%')` : '') +
-            (where.color ? `AND (\`mouses\`.\`color\` LIKE '%${where.color}%')` : '')
+            (where.productBrand ? `AND (\`product\`.\`productBrand\` REGEXP '${convertRegexpQuery(where.productBrand)}')` : '') +
+            (where.trackingMethod ? `AND (\`mouses\`.\`trackingMethod\` REGEXP '${convertRegexpQuery(where.trackingMethod)}')` : '') +
+            (where.connectType ? `AND (\`mouses\`.\`connectType\` REGEXP '${convertRegexpQuery(where.connectType)}')` : '') +
+            (where.dpi ? `AND (\`mouses\`.\`dpi\` REGEXP '${convertRegexpQuery(where.dpi)}')` : '') +
+            (where.hand ? `AND (\`mouses\`.\`hand\` REGEXP '${convertRegexpQuery(where.hand)}')` : '') +
+            (where.color ? `AND (\`mouses\`.\`color\` REGEXP '${convertRegexpQuery(where.color)}')` : '')
         );
         try {
             // Get total query record
@@ -81,10 +89,10 @@ export default class User {
             rawRecords = rawRecords.slice(start, start + 1 * pageSize)
 
             const records: MouseModel[] = rawRecords;
-            // rawRecords.forEach(element => {
-            //     const obj = element as CpuModel
-            //     records.push(nestedConvert(obj as CpuModel))
-            // });
+            rawRecords.forEach(element => {
+                const obj = element as MouseModel
+                obj.productPhoto = SERVERNAME + obj.productPhoto;
+            });
             // // const limitQuery = `LIMIT ${start},${pageSize}`;
             // // const [records, metadata] = await Database.query(selectQuery + relationQuery + whereQuery + limitQuery, {});
             return { records, total, currPage }

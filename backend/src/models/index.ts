@@ -12,6 +12,7 @@ import Mouse from "@models/products/Mouse.model";
 import Ram from "@models/products/Ram.model";
 import StorageDrive from "@models/products/StorageDrive.model";
 import Videocard from "@models/products/VideoCard.model";
+import Product from "@models/products/Product.model";
 import Producer from "@models/products/Producer.model";
 dotenv.config();
 
@@ -52,6 +53,7 @@ const Models = {
     Ram: new Ram(Database),
     StorageDrive: new StorageDrive(Database),
     Videocard: new Videocard(Database),
+    Product: new Product(Database),
     Producer: new Producer(Database),
 };
 export { Models, Database, connectionAuthenticate, }

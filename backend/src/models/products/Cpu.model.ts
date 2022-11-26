@@ -1,16 +1,26 @@
 import { Product, ProductId } from "@type/models/product";
-import { nestedConvert } from "@utils/convert.util";
+import { convertRegexpQuery, nestedConvert } from "@utils/convert.util";
 import { Connection, escape, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
+import { SERVERNAME } from "server";
 
-interface CpuModel extends ProductId {
+interface CpuModel extends Product {
+    productId: string;
+    productName: string;
     cpuTypeId: number;
+    productPhoto: string;
+    productType: string;
+    productBrand: string;
+    processor: string;
+    gen: string;
+    codename: string;
     coreCount: number;
     coreClock: string;
     coreBoost: string;
     thread: number;
-    spend: string;
+    socket: string;
     tdp: string;
     iGpu: string;
+    price: number;
 }
 interface CpuRowData extends CpuModel, RowDataPacket { }
 
@@ -27,10 +37,11 @@ export default class Cpu {
         where = <{
             productId?: string,
             cpuName?: string,
-            brand?: string,
-            processor?: string,
-            gen?: string,
-            socket?: string,
+            brand?: string[],
+            processor?: string[],
+            gen?: string[],
+            socket?: string[],
+            igpu?: string[],
         }>{}
     } = {}) {
         const selectQuery = ("SELECT" +
@@ -66,10 +77,11 @@ export default class Cpu {
         const whereQuery = ('' +
             (where.productId ? `AND (\`product\`.\`productId\` = '${where.productId}')` : '') +
             (where.cpuName ? `AND (\`product\`.\`productName\` LIKE '%${where.cpuName}%')` : '') +
-            (where.brand ? `AND (\`product\`.\`productBrand\` LIKE '%${where.brand}%')` : '') +
-            (where.processor ? `AND (\`Cpu_Type\`.\`processor\` LIKE '%${where.processor}%')` : '') +
-            (where.gen ? `AND (\`Cpu_Type\`.\`gen\` LIKE '%${where.gen}%')` : '') +
-            (where.socket ? `AND (\`Cpu_Type\`.\`socket\` LIKE '%${where.socket}%')` : '')
+            (where.brand ? `AND (\`product\`.\`productBrand\` REGEXP '${convertRegexpQuery(where.brand)}')` : '') +
+            (where.processor ? `AND (\`Cpu_Type\`.\`processor\` REGEXP '${convertRegexpQuery(where.processor)}')` : '') +
+            (where.gen ? `AND (\`Cpu_Type\`.\`gen\` REGEXP '${convertRegexpQuery(where.gen)}')` : '') +
+            (where.socket ? `AND (\`Cpu_Type\`.\`socket\` REGEXP '${convertRegexpQuery(where.socket)}')` : '') +
+            (where.igpu ? `AND (\`cpus\`.\`iGpu\` REGEXP '${convertRegexpQuery(where.igpu)}')` : '')
         );
         try {
             // Get total query record
@@ -84,10 +96,10 @@ export default class Cpu {
             rawRecords = rawRecords.slice(start, start + 1 * pageSize)
 
             const records: CpuModel[] = rawRecords;
-            // rawRecords.forEach(element => {
-            //     const obj = element as CpuModel
-            //     records.push(nestedConvert(obj as CpuModel))
-            // });
+            rawRecords.forEach(element => {
+                const obj = element as CpuModel
+                obj.productPhoto = SERVERNAME + obj.productPhoto;
+            });
             // // const limitQuery = `LIMIT ${start},${pageSize}`;
             // // const [records, metadata] = await Database.query(selectQuery + relationQuery + whereQuery + limitQuery, {});
             return { records, total, currPage }

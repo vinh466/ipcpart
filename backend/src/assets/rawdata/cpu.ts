@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
 
-
 export const cpuProcessorData = [
     { processor: 'A4', brand: 'AMD ' },
     { processor: 'A6', brand: 'AMD ' },
@@ -42,59 +41,59 @@ export const cpuProcessorData = [
     { processor: 'Xeon E', brand: 'Intel' },
     { processor: 'Xeon E3', brand: 'Intel' },
     { processor: 'Xeon E5', brand: 'Intel' },
-]
+];
 
 export const cpuGenData = [
-    { gen: "12th", codename: "Alder Lake", brand: 'Intel' },
-    { gen: "11th", codename: "Rocket Lake", brand: 'Intel' },
-    { gen: "10th", codename: "Comet Lake", brand: 'Intel' },
-    { gen: "9th", codename: "Coffee Lake Refresh", brand: 'Intel' },
-    { gen: "8th", codename: "Coffee Lake", brand: 'Intel' },
-    { gen: "7th", codename: "Kaby Lake", brand: 'Intel' },
-    { gen: "6th", codename: "Skylake", brand: 'Intel' },
-    { gen: "5th", codename: "Haswell", brand: 'Intel' },
-    { gen: "4th", codename: "Broadwell", brand: 'Intel' },
-    { gen: "1000 Series", codename: "Summit Ridge", brand: 'AMD ' },
-    { gen: "Threadripper 1000 Series", codename: "Whitehaven", brand: 'AMD ' },
-    { gen: "2000 Series", codename: "Pinnacle Ridge", brand: 'AMD ' },
-    { gen: "Threadripper 2000 Series", codename: "Colfax", brand: 'AMD ' },
-    { gen: "3000 Series", codename: "Matisse", brand: 'AMD ' },
-    { gen: "Threadripper 3000 Series", codename: "Castle Peak", brand: 'AMD ' },
-    { gen: "5000 Series", codename: "Vermeer", brand: 'AMD ' },
-    { gen: "Threadripper 5000 Series", codename: "Castle Peak", brand: 'AMD ' },
-    { gen: "7000 Series", codename: "Raphael", brand: 'AMD ' },
-]
+    { gen: '12th', codename: 'Alder Lake', brand: 'Intel' },
+    { gen: '11th', codename: 'Rocket Lake', brand: 'Intel' },
+    { gen: '10th', codename: 'Comet Lake', brand: 'Intel' },
+    { gen: '9th', codename: 'Coffee Lake Refresh', brand: 'Intel' },
+    { gen: '8th', codename: 'Coffee Lake', brand: 'Intel' },
+    { gen: '7th', codename: 'Kaby Lake', brand: 'Intel' },
+    { gen: '6th', codename: 'Skylake', brand: 'Intel' },
+    { gen: '5th', codename: 'Haswell', brand: 'Intel' },
+    { gen: '4th', codename: 'Broadwell', brand: 'Intel' },
+    { gen: '1000 Series', codename: 'Summit Ridge', brand: 'AMD ' },
+    { gen: 'Threadripper 1000 Series', codename: 'Whitehaven', brand: 'AMD ' },
+    { gen: '2000 Series', codename: 'Pinnacle Ridge', brand: 'AMD ' },
+    { gen: 'Threadripper 2000 Series', codename: 'Colfax', brand: 'AMD ' },
+    { gen: '3000 Series', codename: 'Matisse', brand: 'AMD ' },
+    { gen: 'Threadripper 3000 Series', codename: 'Castle Peak', brand: 'AMD ' },
+    { gen: '5000 Series', codename: 'Vermeer', brand: 'AMD ' },
+    { gen: 'Threadripper 5000 Series', codename: 'Castle Peak', brand: 'AMD ' },
+    { gen: '7000 Series', codename: 'Raphael', brand: 'AMD ' },
+];
 
 export const socketData = [
-    { socketName: "AM1" },
-    { socketName: "AM2+" },
-    { socketName: "AM3" },
-    { socketName: "AM3+" },
-    { socketName: "AM4" },
-    { socketName: "AM5" },
-    { socketName: "FM1" },
-    { socketName: "FM2" },
-    { socketName: "FM2+" },
-    { socketName: "G34" },
-    { socketName: "LGA 771" },
-    { socketName: "LGA 775" },
-    { socketName: "FCLGA1150" },
-    { socketName: "LGA 1150" },
-    { socketName: "LGA 1151" },
-    { socketName: "LGA 1155" },
-    { socketName: "LGA 1156" },
-    { socketName: "LGA 1200" },
-    { socketName: "LGA 1356" },
-    { socketName: "LGA 1366" },
-    { socketName: "LGA 1700" },
-    { socketName: "LGA 2011" },
-    { socketName: "LGA 2011-3" },
-    { socketName: "LGA 2066" },
-    { socketName: "TR4" },
-    { socketName: "sTR4" },
-    { socketName: "sTRX4" },
-    { socketName: "sWRX8" },
-]
+    { socketName: 'AM1' },
+    { socketName: 'AM2+' },
+    { socketName: 'AM3' },
+    { socketName: 'AM3+' },
+    { socketName: 'AM4' },
+    { socketName: 'AM5' },
+    { socketName: 'FM1' },
+    { socketName: 'FM2' },
+    { socketName: 'FM2+' },
+    { socketName: 'G34' },
+    { socketName: 'LGA 771' },
+    { socketName: 'LGA 775' },
+    { socketName: 'FCLGA1150' },
+    { socketName: 'LGA 1150' },
+    { socketName: 'LGA 1151' },
+    { socketName: 'LGA 1155' },
+    { socketName: 'LGA 1156' },
+    { socketName: 'LGA 1200' },
+    { socketName: 'LGA 1356' },
+    { socketName: 'LGA 1366' },
+    { socketName: 'LGA 1700' },
+    { socketName: 'LGA 2011' },
+    { socketName: 'LGA 2011-3' },
+    { socketName: 'LGA 2066' },
+    { socketName: 'TR4' },
+    { socketName: 'sTR4' },
+    { socketName: 'sTRX4' },
+    { socketName: 'sWRX8' },
+];
 
 export const cpuTypeData = [
     { gen: '12th', processor: 'Core i3', brand: 'Intel', socket: 'LGA 1700' },
@@ -146,30 +145,50 @@ export const cpuTypeData = [
     { gen: '1000 Series', processor: 'Ryzen 3', brand: 'AMD', socket: 'AM4' },
     { gen: '1000 Series', processor: 'Ryzen 5', brand: 'AMD', socket: 'AM4' },
     { gen: '1000 Series', processor: 'Ryzen 7', brand: 'AMD', socket: 'AM4' },
-    { gen: '1000 Series', processor: 'Threadripper', brand: 'AMD', socket: 'TR4' },
+    {
+        gen: '1000 Series',
+        processor: 'Threadripper',
+        brand: 'AMD',
+        socket: 'TR4',
+    },
 
     { gen: '2000 Series', processor: 'Ryzen 3', brand: 'AMD', socket: 'AM4' },
     { gen: '2000 Series', processor: 'Ryzen 5', brand: 'AMD', socket: 'AM4' },
     { gen: '2000 Series', processor: 'Ryzen 7', brand: 'AMD', socket: 'AM4' },
-    { gen: '2000 Series', processor: 'Threadripper', brand: 'AMD', socket: 'TR4' },
+    {
+        gen: '2000 Series',
+        processor: 'Threadripper',
+        brand: 'AMD',
+        socket: 'TR4',
+    },
 
     { gen: '3000 Series', processor: 'Ryzen 3', brand: 'AMD', socket: 'AM4' },
     { gen: '3000 Series', processor: 'Ryzen 5', brand: 'AMD', socket: 'AM4' },
     { gen: '3000 Series', processor: 'Ryzen 7', brand: 'AMD', socket: 'AM4' },
     { gen: '3000 Series', processor: 'Ryzen 9', brand: 'AMD', socket: 'AM4' },
-    { gen: '3000 Series', processor: 'Threadripper', brand: 'AMD', socket: 'sTRX4' },
+    {
+        gen: '3000 Series',
+        processor: 'Threadripper',
+        brand: 'AMD',
+        socket: 'sTRX4',
+    },
 
     { gen: '5000 Series', processor: 'Ryzen 3', brand: 'AMD', socket: 'AM4' },
     { gen: '5000 Series', processor: 'Ryzen 5', brand: 'AMD', socket: 'AM4' },
     { gen: '5000 Series', processor: 'Ryzen 7', brand: 'AMD', socket: 'AM4' },
     { gen: '5000 Series', processor: 'Ryzen 9', brand: 'AMD', socket: 'AM4' },
-    { gen: '5000 Series', processor: 'Threadripper', brand: 'AMD', socket: 'sWRX8' },
+    {
+        gen: '5000 Series',
+        processor: 'Threadripper',
+        brand: 'AMD',
+        socket: 'sWRX8',
+    },
 
     { gen: '7000 Series', processor: 'Ryzen 3', brand: 'AMD', socket: 'AM5' },
     { gen: '7000 Series', processor: 'Ryzen 5', brand: 'AMD', socket: 'AM5' },
     { gen: '7000 Series', processor: 'Ryzen 7', brand: 'AMD', socket: 'AM5' },
     { gen: '7000 Series', processor: 'Ryzen 9', brand: 'AMD', socket: 'AM5' },
-]
+];
 
 export const cpuData = [
     {
@@ -180,12 +199,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-5600x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-5600x.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 5',
         price: 158,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -195,12 +214,12 @@ export const cpuData = [
         boostClock: '4.7 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-5800x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-5800x.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 7',
         price: 243.43,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -210,12 +229,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-5600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-5600.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 5',
         price: 118.99,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -225,12 +244,12 @@ export const cpuData = [
         boostClock: '5 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i7-12700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-12700k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 347.69,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -240,12 +259,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i5-12600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12600k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 279.98,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -255,12 +274,12 @@ export const cpuData = [
         boostClock: '5.8 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i9-13900k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-13900k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i9',
         price: 625,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -270,12 +289,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-12400f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12400f.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 159.97,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -285,12 +304,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-5900x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-5900x.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 9',
         price: 343.9,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -300,12 +319,12 @@ export const cpuData = [
         boostClock: '5.1 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i5-13600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-13600k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 300,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -315,12 +334,12 @@ export const cpuData = [
         boostClock: '4.5 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-5800x3d.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-5800x3d.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 7',
         price: 402.2,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -330,12 +349,12 @@ export const cpuData = [
         boostClock: '5.7 GHz',
         TDP: '170 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-7950x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-7950x.jpg',
         socket: 'AM5',
         gen: '7000 Series',
         processor: 'Ryzen 9',
         price: 698.99,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -345,12 +364,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'Radeon Vega 7',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-5600g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-5600g.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 5',
         price: 110.51,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -360,12 +379,12 @@ export const cpuData = [
         boostClock: '5.2 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i9-12900k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-12900k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i9',
         price: 499.89,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -375,12 +394,12 @@ export const cpuData = [
         boostClock: '5.4 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i7-13700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-13700k.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 439.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -390,12 +409,12 @@ export const cpuData = [
         boostClock: '5.4 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-7700x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-7700x.jpg',
         socket: 'AM5',
         gen: '7000 Series',
         processor: 'Ryzen 7',
         price: 398.98,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -405,12 +424,12 @@ export const cpuData = [
         boostClock: '5.3 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-7600x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-7600x.jpg',
         socket: 'AM5',
         gen: '7000 Series',
         processor: 'Ryzen 5',
         price: 299,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -420,12 +439,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-5700x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-5700x.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 7',
         price: 227.05,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -435,12 +454,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-3600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-3600.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 0,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -450,12 +469,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '58 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i3-12100f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i3-12100f.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i3',
         price: 105.98,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -465,12 +484,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-5500.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-5500.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 5',
         price: 99,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -480,12 +499,12 @@ export const cpuData = [
         boostClock: '5.6 GHz',
         TDP: '170 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-7900x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-7900x.jpg',
         socket: 'AM5',
         gen: '7000 Series',
         processor: 'Ryzen 9',
         price: 549,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -495,12 +514,12 @@ export const cpuData = [
         boostClock: '5.1 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-13600kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-13600kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 309.98,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -510,12 +529,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-5950x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-5950x.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 9',
         price: 549,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -525,12 +544,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '65 W',
         iGpu: 'Radeon Vega 8',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-5700g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-5700g.jpg',
         socket: 'AM4',
         gen: '5000 Series',
         processor: 'Ryzen 7',
         price: 186.3,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -540,12 +559,12 @@ export const cpuData = [
         boostClock: '4.1 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-4500.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-4500.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 78.98,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -555,12 +574,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-10400f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-10400f.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i5',
         price: 128.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -570,12 +589,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i3-10100f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i3-10100f.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i3',
         price: 81.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -585,12 +604,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 730',
-        imgUrl: '/image/products/cpu/intel-core-i5-12400.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12400.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 189.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -600,12 +619,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-3700x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-3700x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 7',
         price: 0,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -615,12 +634,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '280 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-threadripper-3990x.jpg',
+        imgUrl: '/images/products/cpu/amd-threadripper-3990x.jpg',
         socket: 'sTRX4',
         gen: '3000 Series',
         processor: 'Threadripper',
         price: 8400,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -630,12 +649,12 @@ export const cpuData = [
         boostClock: '5.8 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i9-13900kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-13900kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i9',
         price: 629.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -645,12 +664,12 @@ export const cpuData = [
         boostClock: '5 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 750',
-        imgUrl: '/image/products/cpu/intel-core-i7-11700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-11700k.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i7',
         price: 290,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -660,12 +679,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-12600kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12600kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 264.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -675,12 +694,12 @@ export const cpuData = [
         boostClock: '5 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-12700kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-12700kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 358.97,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -690,12 +709,12 @@ export const cpuData = [
         boostClock: '5.4 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-13700kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-13700kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 421.41,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -705,12 +724,12 @@ export const cpuData = [
         boostClock: '5.1 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-10700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-10700k.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i7',
         price: 265.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -720,12 +739,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-12700f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-12700f.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 329.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -735,12 +754,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-11400f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-11400f.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i5',
         price: 161.79,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -750,12 +769,12 @@ export const cpuData = [
         boostClock: '5.5 GHz',
         TDP: '150 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i9-12900ks.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-12900ks.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i9',
         price: 593.9,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -765,12 +784,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-3900x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-3900x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 9',
         price: 359.99,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -780,12 +799,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '60 W',
         iGpu: 'Intel UHD Graphics 730',
-        imgUrl: '/image/products/cpu/intel-core-i3-12100.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i3-12100.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i3',
         price: 137.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -795,12 +814,12 @@ export const cpuData = [
         boostClock: '5.3 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 750',
-        imgUrl: '/image/products/cpu/intel-core-i9-11900k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-11900k.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i9',
         price: 368.98,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -811,12 +830,12 @@ export const cpuData = [
         TDP: '95 W',
         iGpu: 'Intel UHD Graphics 630',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i7-9700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-9700k.jpg',
         socket: 'LGA 1151',
         gen: '9th',
         price: 430,
         processor: 'Core i7',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -826,12 +845,12 @@ export const cpuData = [
         boostClock: '5.3 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i9-10900k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-10900k.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i9',
         price: 346.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -841,12 +860,12 @@ export const cpuData = [
         boostClock: '3.9 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-2600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-2600.jpg',
         socket: 'AM4',
         gen: '2000 Series',
         processor: 'Ryzen 5',
         price: 210,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -856,12 +875,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'Radeon Vega 7',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-4600g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-4600g.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 113.55,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -871,12 +890,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i3-10105f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i3-10105f.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i3',
         price: 79.97,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -886,12 +905,12 @@ export const cpuData = [
         boostClock: '5 GHz',
         TDP: '95 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i9-9900k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-9900k.jpg',
         socket: 'LGA 1151',
         gen: '9th',
         processor: 'Core i9',
         price: 520,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -901,12 +920,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 750',
-        imgUrl: '/image/products/cpu/intel-core-i5-11600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-11600k.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i5',
         price: 255.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -917,12 +936,12 @@ export const cpuData = [
         TDP: '65 W',
         iGpu: 'Radeon Vega 8',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/amd-ryzen-3-3200g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-3-3200g.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         price: 107.95,
         processor: 'Ryzen 3',
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -932,12 +951,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '95 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-3600x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-3600x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 245,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -947,12 +966,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-2700x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-2700x.jpg',
         socket: 'AM4',
         gen: '2000 Series',
         processor: 'Ryzen 7',
         price: 230,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -962,12 +981,12 @@ export const cpuData = [
         boostClock: '4.7 GHz',
         TDP: '95 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-8700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-8700k.jpg',
         socket: 'LGA 1151',
         gen: '8th',
         processor: 'Core i7',
         price: 322.58,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -977,12 +996,12 @@ export const cpuData = [
         boostClock: '5.2 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i9-12900kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-12900kf.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i9',
         price: 489,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -992,12 +1011,12 @@ export const cpuData = [
         boostClock: '5 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-11700kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-11700kf.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i7',
         price: 293.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1007,12 +1026,12 @@ export const cpuData = [
         boostClock: '4.5 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-3800x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-3800x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 7',
         price: 280,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1023,12 +1042,12 @@ export const cpuData = [
         TDP: '65 W',
         iGpu: 'None',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-9400f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-9400f.jpg',
         socket: 'LGA 1151',
         gen: '9th',
         price: 134,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1038,12 +1057,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i5-10400.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-10400.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i5',
         price: 151.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1053,12 +1072,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i5-12600.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12600.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 249.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1068,12 +1087,12 @@ export const cpuData = [
         boostClock: '4.5 GHz',
         TDP: '91 W',
         iGpu: 'Intel HD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-7700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-7700k.jpg',
         socket: 'LGA 2066',
         gen: '7th',
         processor: 'Core i7',
         price: 355,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1083,12 +1102,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i7-12700.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-12700.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i7',
         price: 379.97,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1098,12 +1117,12 @@ export const cpuData = [
         boostClock: '4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-3-4100.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-3-4100.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 3',
         price: 114,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1113,12 +1132,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 730',
-        imgUrl: '/image/products/cpu/intel-core-i5-11400.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-11400.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i5',
         price: 183.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1128,12 +1147,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '91 W',
         iGpu: 'Intel HD Graphics 530',
-        imgUrl: '/image/products/cpu/intel-core-i7-6700k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-6700k.jpg',
         socket: 'LGA 1151',
         gen: '6th',
         processor: 'Core i7',
         price: 250,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1143,12 +1162,12 @@ export const cpuData = [
         boostClock: '4.3 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i3-10100.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i3-10100.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i3',
         price: 99.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1158,12 +1177,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i5-10600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-10600k.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i5',
         price: 199.92,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1174,12 +1193,12 @@ export const cpuData = [
         TDP: '95 W',
         iGpu: 'Intel UHD Graphics 630',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-9600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-9600k.jpg',
         socket: 'LGA 1151',
         gen: '9th',
         price: 230,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1189,12 +1208,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 770',
-        imgUrl: '/image/products/cpu/intel-core-i5-12500.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-12500.jpg',
         socket: 'LGA 1700',
         gen: '12th',
         processor: 'Core i5',
         price: 230.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1204,12 +1223,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '95 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-2600x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-2600x.jpg',
         socket: 'AM4',
         gen: '2000 Series',
         processor: 'Ryzen 5',
         price: 219,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1219,12 +1238,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-10700f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-10700f.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i7',
         price: 249.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1234,12 +1253,12 @@ export const cpuData = [
         boostClock: '3.9 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-3-3100.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-3-3100.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 3',
         price: 149.99,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1249,12 +1268,12 @@ export const cpuData = [
         boostClock: '4.7 GHz',
         TDP: '105 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-9-3950x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-9-3950x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 9',
         price: 610,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1264,12 +1283,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'Radeon Vega 11',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-3400g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-3400g.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 148.97,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1279,12 +1298,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '88 W',
         iGpu: 'Intel HD Graphics 4600',
-        imgUrl: '/image/products/cpu/intel-core-i7-4790k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-4790k.jpg',
         socket: 'LGA 1150',
         gen: '4th',
         processor: 'Core i7',
         price: 0,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1294,12 +1313,12 @@ export const cpuData = [
         boostClock: '5.2 GHz',
         TDP: '125 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i9-10850k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-10850k.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i9',
         price: 349.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1309,12 +1328,12 @@ export const cpuData = [
         boostClock: '4.6 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-8700.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-8700.jpg',
         socket: 'LGA 1151',
         gen: '8th',
         processor: 'Core i7',
         price: 320,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1324,12 +1343,12 @@ export const cpuData = [
         boostClock: '5.1 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-10700kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-10700kf.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i7',
         price: 289.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1339,12 +1358,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-11600kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-11600kf.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i5',
         price: 199.9,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1354,12 +1373,12 @@ export const cpuData = [
         boostClock: '4.5 GHz',
         TDP: '280 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-threadripper-3970x.jpg',
+        imgUrl: '/images/products/cpu/amd-threadripper-3970x.jpg',
         socket: 'sTRX4',
         gen: '3000 Series',
         processor: 'Threadripper',
         price: 3450,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1369,12 +1388,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i5-10600kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-10600kf.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i5',
         price: 169.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1385,12 +1404,12 @@ export const cpuData = [
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 630',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-8400.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-8400.jpg',
         socket: 'LGA 1151',
         gen: '8th',
         price: 195,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1400,12 +1419,12 @@ export const cpuData = [
         boostClock: '5.3 GHz',
         TDP: '125 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i9-10900kf.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i9-10900kf.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i9',
         price: 339.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1416,12 +1435,12 @@ export const cpuData = [
         TDP: '91 W',
         iGpu: 'Intel HD Graphics 530',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-6600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-6600k.jpg',
         socket: 'LGA 1151',
         gen: '6th',
         price: 160,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1431,12 +1450,12 @@ export const cpuData = [
         boostClock: '3.6 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-1600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-1600.jpg',
         socket: 'AM4',
         gen: '1000 Series',
         processor: 'Ryzen 5',
         price: 176.1,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1446,12 +1465,12 @@ export const cpuData = [
         boostClock: '4.5 GHz',
         TDP: '280 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-threadripper-3960x.jpg',
+        imgUrl: '/images/products/cpu/amd-threadripper-3960x.jpg',
         socket: 'sTRX4',
         gen: '3000 Series',
         processor: 'Threadripper',
         price: 2010.1,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1461,12 +1480,12 @@ export const cpuData = [
         boostClock: '4.4 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-3700x.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-3700x.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 7',
         price: 0,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1476,12 +1495,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '250 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-threadripper-2990wx.jpg',
+        imgUrl: '/images/products/cpu/amd-threadripper-2990wx.jpg',
         socket: 'TR4',
         gen: '2000 Series',
         processor: 'Threadripper',
         price: 2990,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1491,12 +1510,12 @@ export const cpuData = [
         boostClock: '4.9 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/intel-core-i7-11700f.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-11700f.jpg',
         socket: 'LGA 1200',
         gen: '11th',
         processor: 'Core i7',
         price: 275.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1506,12 +1525,12 @@ export const cpuData = [
         boostClock: '3.6 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-1600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-1600.jpg',
         socket: 'AM4',
         gen: '1000 Series',
         processor: 'Ryzen 5',
         price: 176.1,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1521,12 +1540,12 @@ export const cpuData = [
         boostClock: '4.8 GHz',
         TDP: '65 W',
         iGpu: 'Intel UHD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-10700.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-10700.jpg',
         socket: 'LGA 1200',
         gen: '10th',
         processor: 'Core i7',
         price: 268.99,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1537,12 +1556,12 @@ export const cpuData = [
         TDP: '95 W',
         iGpu: 'Intel UHD Graphics 630',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-8600k.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-8600k.jpg',
         socket: 'LGA 1151',
         gen: '8th',
         price: 260,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1552,12 +1571,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'Intel HD Graphics 630',
-        imgUrl: '/image/products/cpu/intel-core-i7-7700.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i7-7700.jpg',
         socket: 'LGA 2066',
         gen: '7th',
         processor: 'Core i7',
         price: 285,
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1568,12 +1587,12 @@ export const cpuData = [
         TDP: '65 W',
         iGpu: 'Radeon Vega 8',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/amd-ryzen-3-2200g.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-3-2200g.jpg',
         socket: 'AM4',
         gen: '2000 Series',
         price: 180,
         processor: 'Ryzen 3',
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1584,12 +1603,12 @@ export const cpuData = [
         TDP: '65 W',
         iGpu: 'Intel HD Graphics 530',
         SMT: 'No',
-        imgUrl: '/image/products/cpu/intel-core-i5-6500.jpg',
+        imgUrl: '/images/products/cpu/intel-core-i5-6500.jpg',
         socket: 'LGA 1151',
         gen: '6th',
         price: 130,
         processor: 'Core i5',
-        brand: 'Intel'
+        brand: 'Intel',
     },
     {
         cpuId: uuidv4(),
@@ -1599,12 +1618,12 @@ export const cpuData = [
         boostClock: '4.2 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-5-3600.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-5-3600.jpg',
         socket: 'AM4',
         gen: '3000 Series',
         processor: 'Ryzen 5',
         price: 0,
-        brand: 'AMD'
+        brand: 'AMD',
     },
     {
         cpuId: uuidv4(),
@@ -1614,11 +1633,11 @@ export const cpuData = [
         boostClock: '4.1 GHz',
         TDP: '65 W',
         iGpu: 'None',
-        imgUrl: '/image/products/cpu/amd-ryzen-7-2700.jpg',
+        imgUrl: '/images/products/cpu/amd-ryzen-7-2700.jpg',
         socket: 'AM4',
         gen: '2000 Series',
         processor: 'Ryzen 7',
         price: 260,
-        brand: 'AMD'
-    }
-]
+        brand: 'AMD',
+    },
+];
