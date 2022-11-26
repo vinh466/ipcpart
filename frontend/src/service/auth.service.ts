@@ -1,4 +1,3 @@
-import { useAuthStore } from "@/stores/auth/AuthStore";
 import type { UserSignInForm, UserSignUpForm } from "@/types/api/system/auth";
 import type { UserItem } from "@/types/api/system/user";
 import type { AxiosInstance, AxiosError } from "axios";

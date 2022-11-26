@@ -2,7 +2,7 @@ import type { Product, ProductPageResult } from "@/types/api/products/product"
 
 function getSSD(): ProductPageResult {
     return {
-        list: [
+        data: [
             {
                 productId: "2",
                 productName: 'WD Black P10 Game Drive 4',
@@ -164,7 +164,12 @@ function getSSD(): ProductPageResult {
                 discount: 4.5
             },
         ],
-        total: 2
+        meta: {
+            totalPage: 1,
+            totalItems: 15,
+            currentPage: 1,
+            pageSize: 15
+        }
     }
 }
 

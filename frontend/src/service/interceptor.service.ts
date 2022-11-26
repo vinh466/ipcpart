@@ -5,10 +5,10 @@ import { createApiClient } from "./api.service";
 import tokenService from "./token.service";
 
 const apiClient = createApiClient('/');
-let MAX_RETRIES = 5;
-let ONE_MINUTE = 60 * 1000;
+// let MAX_RETRIES = 5;
+// let ONE_MINUTE = 60 * 1000;
 let isRefreshToken = false;
-let isRefreshing = false;
+// let isRefreshing = false;
 let subscribers: ((token: string) => void)[] = [];
 
 function onRefreshed(authorisationToken: string) {
@@ -58,7 +58,7 @@ export default (axiosInstance: AxiosInstance) => {
             * Retry when 401 requests
             *
             */
-            let originalRequest = error.config;
+            const originalRequest = error.config;
 
             // if (originalRequest.url === "/signin" || originalRequest.url === "/refreshToken") {
             //     return Promise.reject(error);

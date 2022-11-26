@@ -1,35 +1,55 @@
 import { PageQueryParam, PageResult } from '../base';
-
-export interface ProductQueryParam extends PageQueryParam {
-    ProductSn: string | undefined;
-    status: number | undefined;
-}
+import type {
+    CpuQuery,
+    MainboardQuery,
+    MonitorQuery,
+    MouseQuery,
+    RamQuery,
+    StorageDriveQuery,
+    VideoCardQuery,
+} from './';
+import type {
+    CpuModel,
+    MainboardModel,
+    MonitorModel,
+    MouseModel,
+    RamModel,
+    StorageDriveModel,
+    VideoCardModel,
+} from './';
 
 export interface Product {
-    productId: String;
-    productName: String;
-    imgUrl: string;
-    price: number;
-    productType?: string;
+    productId: string;
+    productName: string;
+    productBrand: string;
+    productPhoto: string;
+    productType: string;
     discount?: double;
+    price: double;
+    inStock: number;
+    updatedAt?: string;
+    createdAt?: string;
+    deletedAt?: string;
     review?: {
         rate?: number;
         total?: number;
     };
 }
 
-export interface ProductDetail {
-    id: number | undefined;
-    title: string;
-    picUrl: string;
-    beginTime: string;
-    endTime: string;
-    status: number;
-    sort: number;
-    url: string;
-    remark: string;
-}
-
 export type ProductPageResult = PageResult<Product[]>;
 
 export type ProductSection = [Array<Product>, Array<Product>?]
+
+export type ProductQuery = {
+    productId: string,
+    productType: string,
+    productName: string,
+    productBrand: string,
+}
+export type ProductParams = PageQueryParam<ProductQuery>;
+
+export type ProductDetail = CpuModel | MainboardModel | VideoCardModel | StorageDriveModel | RamModel | MouseModel | MonitorModel | null
+
+export type ProductFilterQuery = CpuQuery | MainboardQuery | VideoCardQuery | StorageDriveQuery | RamQuery | MouseQuery | MonitorQuery | null
+
+export type ProductFilterParams = PageQueryParam<ProductFilterQuery>;
