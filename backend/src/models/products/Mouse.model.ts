@@ -12,6 +12,7 @@ interface MouseModel extends Product {
     productPhoto: string;
     productBrand: string;
     price: number;
+    inStock: number;
     trackingMethod: string;
     conectType: string;
     dpi: number;
@@ -50,6 +51,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`mouses`.`trackingMethod`," +
             "`mouses`.`connectType`," +
             "`mouses`.`dpi`," +

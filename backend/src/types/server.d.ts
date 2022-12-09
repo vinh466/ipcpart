@@ -15,6 +15,7 @@ declare global {
                 user: User;
             }
             username?: string;
+            role?: string;
             isAdmin?: boolean;
         }
     }

@@ -22,4 +22,35 @@ export default class User {
         const queryString = "INSERT INTO ProductOrder (product_id, customer_id, product_quantity) VALUES (?, ?, ?)"
 
     };
+    async getOption({
+        query = <{
+            chipsetName?: string,
+        }>{}
+    }) {
+        // query = extractData(query)
+        console.log(query);
+        const brandsQuery = "SELECT DISTINCT brand from producers  "
+        const gensQuery = "SELECT DISTINCT chipsetName from gpu_chipsets "
+
+
+        if (Object.keys(query).length > 0) {
+            try {
+                const [brandOptions, brandMeta] = await this.Database.query(brandsQuery)
+                const [genOptions, genMeta] = await this.Database.query(gensQuery)
+
+                const options = {
+                    brand: Object.values(brandOptions).map((value) => value.brand),
+                    chipsetName: Object.values(genOptions).map((value) => value.chipsetName),
+                }
+                return options
+
+            } catch (error) {
+                console.log(error)
+                return false;
+            }
+        } else {
+            return false
+        }
+
+    }
 }

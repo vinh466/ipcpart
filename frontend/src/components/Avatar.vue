@@ -7,53 +7,54 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from '@vue/reactivity';
-import { watch } from '@vue/runtime-core';
+  import { ref } from '@vue/reactivity';
+  import { watch } from '@vue/runtime-core';
 
-const props = withDefaults(
-  defineProps<{
-    initial?: string;
-    imgUrl?: string;
-    height?: number;
-    width?: number;
-  }>(),
-  {
-    imgUrl: '',
-    initial: 'A',
-    height: 30,
-    width: 30,
-  }
-);
-const textAvatar = ref(false);
-const imgIsErr = () => {
-  textAvatar.value = true;
-};
+  const props = withDefaults(
+    defineProps<{
+      initial?: string;
+      imgUrl?: string;
+      height?: number;
+      width?: number;
+    }>(),
+    {
+      imgUrl: '',
+      initial: 'A',
+      height: 30,
+      width: 30,
+    }
+  );
+  const textAvatar = ref(false);
+  const imgIsErr = () => {
+    textAvatar.value = true;
+  };
 </script>
 <style scpoed lang="scss">
-.avatar {
-  background-color: #fff;
-  overflow: hidden;
-  border-radius: 50%;
-  display: flex;
-  white-space: nowrap;
-  &-img {
-    width: 100%;
-    height: 100%;
-    vertical-align: middle;
-  }
-
-  &-text {
+  .avatar {
+    background-color: #fff;
+    overflow: hidden;
+    border-radius: 50%;
     display: flex;
-    height: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--color-secondary);
+    white-space: nowrap;
+    &-img {
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+    }
 
-    & > span {
-      margin: 0 !important;
+    &-text {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-secondary);
+
+      & > span {
+        margin: 0 !important;
+      }
     }
   }
-}
 </style>

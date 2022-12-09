@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { isAdmin, isUser } from "@middlewares/auth.mdw";
-import { getMainboard } from "@controllers/products/mainboard.controller";
+import { getMainboard, getOptions } from "@controllers/products/mainboard.controller";
 
 const mainboardRoute = Router();
 
@@ -10,6 +10,7 @@ mainboardRoute.use(function (req, res, next) {
 });
 
 mainboardRoute.get('/', getMainboard);
+mainboardRoute.get('/getOptions', getOptions)
 
 // mainboardRoute.get('/test')
 

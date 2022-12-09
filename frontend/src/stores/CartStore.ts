@@ -64,6 +64,11 @@ export const useCartStore = defineStore({
         save() {
             localStorage.setItem('CART_STORAGE', JSON.stringify(this.contents))
         },
+        clear() {
+            localStorage.setItem('CART_STORAGE', JSON.stringify(this.contents))
+            this.contents = {};
+            this.save();
+        },
         update() {
             this.contents = JSON.parse(localStorage.getItem('CART_STORAGE') as string) ?? {}
         },

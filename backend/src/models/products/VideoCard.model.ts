@@ -12,6 +12,7 @@ interface VideoCardModel extends Product {
     productPhoto: string;
     productBrand: string;
     price: number;
+    inStock: number;
     chipsetName: string;
     coreClock: number;
     boostClock: number;
@@ -50,6 +51,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`video_cards`.`chipsetName`," +
             "`video_cards`.`coreClock`," +
             "`video_cards`.`boostClock`," +

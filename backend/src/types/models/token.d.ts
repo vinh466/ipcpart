@@ -5,5 +5,6 @@ export interface RefreshToken {
 }
 export interface Token {
     username: string;
+    role: string;
     exp: number;
 }

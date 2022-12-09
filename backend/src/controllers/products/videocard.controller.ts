@@ -1,6 +1,7 @@
 import { Models } from "@models/index";
 import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 import { where } from "sequelize";
 
 export const allAccess = (req: Request, res: Response) => {
@@ -45,4 +46,28 @@ export const getVideoCards = async (req: Request, res: Response) => {
     } else {
         res.status(500).json({ msg: 'no record' })
     }
-} 
+}
+export const getOptions = async (req: Request, res: Response) => {
+    let chipsetNameReq = (req.query.chipsetName || '') as string;
+    try {
+
+        let result = await Models.GpuChipset.getOption({
+            query: {
+                chipsetName: chipsetNameReq,
+            }
+        })
+
+        if (result) {
+            res.status(200).json({ options: result })
+        } else {
+            res.status(404).json({ msg: 'no option' })
+
+        }
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'INTERNAL_SERVER_ERROR' })
+    }
+
+
+
+
+}

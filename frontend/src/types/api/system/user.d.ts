@@ -1,50 +1,60 @@
 import { PageQueryParam, PageResult } from '../base';
 
 export interface UserInfo {
-  nickname: string;
-  avatar: string;
-  roles: string[];
-  perms: string[];
 }
-
-export interface UserQueryParam extends PageQueryParam {
-  keywords: string;
-  status: number;
-  deptId: number;
-}
+export type Role = ['user'?, 'admin'?, 'moderator'?]
 
 export interface UserItem {
-  id: string;
   username: string;
-  nickname: string;
-  mobile: string;
-  gender: number;
-  avatar: string;
+  // nickname?: string;
+  // gender?: string;
+  avatar?: string;
   email: string;
-  status: number;
+  // status?: number;
   name: string;
   lastname: string;
-  roleNames: string;
-  createTime: string;
-  accessToken: string;
-  refreshToken: string;
+  address: string;
+  city: string;
+  phone: string;
+  role: Role;
+  createTime?: string;
+  accessToken?: string;
+  refreshToken?: string;
 }
+
+export type UserPageResult = PageResult<UserItem[]>;
+
+export interface UserQuery {
+  "username"?: string;
+  "email"?: string;
+  "name"?: string;
+  "lastname"?: string;
+  "roles"?: string;
+  "address"?: string;
+  "city"?: string;
+  "phone"?: string;
+}
+
+export type UserQueryParams = PageQueryParam<UserQuery>;
 
 export interface UserFormData {
-  id: number | undefined;
-  deptId: number;
-  username: string;
-  nickname: string;
-  password: string;
-  mobile: string;
-  email: string;
-  gender: number;
-  status: number;
-  remark: string;
-  roleIds: number[];
+  username?: string;
+  email?: string;
+  name?: string;
+  lastname?: string;
+  password?: string;
+  roles?: string;
+  address?: string;
+  city?: string;
+  phone?: string;
 }
 
-export interface UserImportFormData {
-  deptId: number;
-  roleIds: number[];
+export interface UserUpdateForm {
+  "email"?: string;
+  "name"?: string;
+  "lastname"?: string;
+  "roles"?: string;
+  "address"?: string;
+  "city"?: string;
+  "phone"?: string;
 }

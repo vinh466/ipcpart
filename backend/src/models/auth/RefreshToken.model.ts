@@ -7,6 +7,7 @@ import jwtConfig from "@configs/jwt.config";
 interface RefreshTokenModel {
     refreshToken: string;
     username: string;
+    role: string;
     expiryDate: number | Date;
 }
 interface RefreshTokenRowData extends RefreshTokenModel, RowDataPacket { }
@@ -18,14 +19,14 @@ export default class RefreshToken {
         this.Database = Database
     }
 
-    async create(username: string) {
+    async create(username: string, role = 'user') {
         try {
             let expiredAt = new Date();
             const _refreshToken = uuidv4();
-            const query = 'INSERT INTO refreshtokens (refreshToken, username, expiryDate) VALUE (?)'
+            const query = 'INSERT INTO refreshtokens (refreshToken, username,role , expiryDate) VALUE (?)'
             expiredAt.setSeconds(expiredAt.getSeconds() + jwtConfig.jwtRefreshExpiration);
 
-            let refreshToken = await this.Database.query(query, [[_refreshToken, username, expiredAt]])
+            let refreshToken = await this.Database.query(query, [[_refreshToken, username, role, expiredAt]])
             console.log(_refreshToken)
             return _refreshToken;
         } catch (err) {

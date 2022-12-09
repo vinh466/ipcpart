@@ -8,7 +8,7 @@ import ramRoute from "./ram.route";
 import storageDriveRoute from "./storageDrive.route";
 import mouseRoute from "./mouse.route";
 import videoCardRoute from "./videocard.route";
-import { getProducts } from "@controllers/products/product.controller";
+import { getProducts, removeProducts } from "@controllers/products/product.controller";
 
 const productRoute = Router();
 
@@ -18,6 +18,8 @@ productRoute.use(function (req, res, next) {
 });
 
 productRoute.get('/', getProducts)
+productRoute.get('/admin', getProducts)
+productRoute.delete('/admin', isAdmin, removeProducts)
 productRoute.use('/cpu', cpuRoute);
 productRoute.use('/mainboard', mainboardRoute);
 productRoute.use('/monitor', monitorRoute);

@@ -9,13 +9,17 @@ import {
     faSun as fasSun,
     faStar as fasStar,
     faUserSecret,
+    faXmark,
+    faCopy,
+    faRightFromBracket,
     faMoon,
     faCartArrowDown,
     faEye,
     faChevronLeft,
     faChevronRight,
     faCartShopping,
-    faSpinner, faList, faRotateLeft
+    faSpinner, faList, faRotateLeft, faCaretUp, faUserTie, faTableColumns, faClipboardCheck, faTags, faUser as fasUser,
+    faPenToSquare, faTrash, faPlus
 
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -28,7 +32,7 @@ import {
 
 
 } from '@fortawesome/free-brands-svg-icons';
-import { faStar, faUser, faCircleXmark, } from '@fortawesome/free-regular-svg-icons';
+import { faStar, faUser, faCircleXmark, faTrashAlt, faCopy as farCopy } from '@fortawesome/free-regular-svg-icons';
 
 // faFacebook
 // faGoogle
@@ -37,9 +41,10 @@ import { faStar, faUser, faCircleXmark, } from '@fortawesome/free-regular-svg-ic
 
 /* add icons to the library */
 library.add(
-    faEye,
-    faFacebookF,
+    faEye, faCopy,
+    faFacebookF, faRightFromBracket,
     faCircleXmark,
+    faXmark,
     faFacebook,
     faGoogle,
     faGithub,
@@ -48,10 +53,10 @@ library.add(
     faCartArrowDown,
     faCartShopping,
     faSpinner,
-    faList,
-    faRotateLeft,
+    faList, faPlus,
+    faRotateLeft, faCaretUp, faUserTie, faTableColumns, faClipboardCheck, faTags, fasUser, faTrash
 );
 library.add(fasStar, fasSun, faMoon, faUserSecret, faChevronLeft, faChevronRight);
-library.add(faStar, faUser);
+library.add(faStar, faUser, faPenToSquare, faTrashAlt, farCopy);
 
 export { FontAwesomeIcon }

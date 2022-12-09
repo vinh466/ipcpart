@@ -18,6 +18,7 @@ interface MainboardModel extends Product {
     color: string;
     ramSlot: number;
     price: number;
+    inStock: number;
 }
 interface MainboardRowData extends MainboardModel, RowDataPacket { }
 
@@ -51,6 +52,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`mainboards`.`chipset`," +
             "`mainboard_chipset`.`socket`," +
             "`mainboard_chipset`.`ramStandard`," +

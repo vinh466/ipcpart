@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { isAdmin, isUser } from "@middlewares/auth.mdw";
-import { getCpu, getNameCpus } from "@controllers/products/cpu.controller";
+import { getCpu, getNameCpus, getOptions, insertCpu } from "@controllers/products/cpu.controller";
 
 const cpuRoute = Router();
 
@@ -10,6 +10,8 @@ cpuRoute.use(function (req, res, next) {
 });
 
 cpuRoute.get('/', getCpu)
+cpuRoute.post('/', insertCpu)
+cpuRoute.get('/getOptions', getOptions)
 cpuRoute.get('/names', getNameCpus)
 
 // cpuRoute.get('/test')

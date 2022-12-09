@@ -1,6 +1,7 @@
 import { Models } from "@models/index";
 import { convertStringToArray } from "@utils/convert.util";
 import { query, Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 
 export const getMainboard = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
@@ -39,4 +40,34 @@ export const getMainboard = async (req: Request, res: Response) => {
     } else {
         res.status(500).json({ msg: 'no record' })
     }
+
+
+}
+
+export const getOptions = async (req: Request, res: Response) => {
+
+    let chipsetReq = (req.query.chipset || '') as string;
+    let ramStandardReq = (req.query.ramStandard || '') as string;
+    let socketReq = (req.query.socket || '') as string;
+    try {
+
+        let result = await Models.MainboardChipset.getOption({
+            query: {
+                chipsetName: chipsetReq,
+                socket: socketReq,
+                ramStandard: ramStandardReq,
+            }
+        })
+
+        if (result) {
+            res.status(200).json({ options: result })
+        } else {
+            res.status(404).json({ msg: 'no option' })
+
+        }
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'INTERNAL_SERVER_ERROR' })
+    }
+
+
 }

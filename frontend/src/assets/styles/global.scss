@@ -8,7 +8,7 @@
     --dark-soft: #222222;
     --dark-mute: #282828;
 
-    --green: #00aa55;
+    --green: #009e4f;
     --green-soft: #0c9457;
     --green-mute: #009900;
 
@@ -82,7 +82,9 @@
     font-weight: normal;
     outline: none;
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     scroll-behavior: smooth;
     min-height: 100vh;

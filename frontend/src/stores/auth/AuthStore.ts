@@ -1,6 +1,8 @@
 import { isAxiosError } from '@/service/api.service';
-import authService from '@/service/auth.service';
-import type { UserSignInForm, UserSignUpForm } from '@/types/api/system/auth';
+import authService from '@/service/user/auth.service';
+import tokenService from '@/service/token.service';
+import userService from '@/service/user/user.service';
+import type { NewAccessToken, UserSignInForm, UserSignUpForm } from '@/types/api/system/auth';
 import type { UserItem } from '@/types/api/system/user';
 import type { AxiosError } from 'axios';
 import { defineStore } from 'pinia';
@@ -22,12 +24,16 @@ export const useAuthStore = defineStore({
 
     actions: {
         async signIn(data: UserSignInForm) {
+            console.log('user sign in');
             let nextRoute = this.returnUrl;
             this.returnUrl = '/'
+            this.signInMessage = ''
             try {
                 this.isProcessing = true;
                 const user = await authService.signin(data);
                 this.user = user;
+                this.accessToken = user.accessToken;
+                this.refreshToken = user.refreshToken;
                 console.log(this.user)
                 localStorage.setItem('user', JSON.stringify(user));
                 console.log('next route ' + nextRoute)
@@ -57,7 +63,7 @@ export const useAuthStore = defineStore({
 
         async signUp(data: UserSignUpForm) {
             console.log(data)
-
+            this.signInMessage = ''
             try {
                 this.isProcessing = true;
                 await authService.signup(data);
@@ -80,6 +86,7 @@ export const useAuthStore = defineStore({
         },
 
         logout(redirect = true) {
+            this.signInMessage = ''
             this.user = null;
             (this.user) && authService.logout();
             localStorage.removeItem('user');
@@ -87,8 +94,9 @@ export const useAuthStore = defineStore({
             if (redirect) this.router.push('/auth');
         },
 
-        async refreshToken(redirect = true) {
-            return new Promise(async (resolve, reject) => {
+        async getAccessToken(redirect = true) {
+            this.signInMessage = ''
+            return new Promise<NewAccessToken>(async (resolve, reject) => {
                 try {
                     this.isProcessing = true;
                     console.log('AuthStore refreshToken');
@@ -101,7 +109,7 @@ export const useAuthStore = defineStore({
                         if (response?.status && [404, 403, 401, 500].includes(response.status)) {
                             this.logout(false);
                             console.log('redirect:  ' + redirect)
-                            if (redirect) this.router.push('auth/signin');
+                            if (redirect) this.router.push('/auth/signin');
                         }
                     }
                     console.log(error)
@@ -111,5 +119,20 @@ export const useAuthStore = defineStore({
                 this.isProcessing = false;
             })
         },
+        save() {
+            this.user && tokenService.setUser(this.user)
+        },
+        async fetch() {
+            if (this.refreshToken) {
+                console.log('user fetch');
+                const fetchUser = await userService.fetchUser() || null
+                if (fetchUser) {
+                    this.user = fetchUser;
+                    this.user.refreshToken = this.refreshToken;
+                    this.user.accessToken = this.accessToken;
+                    this.save();
+                }
+            }
+        }
     }
 });

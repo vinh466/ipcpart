@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { isAdmin, isUser } from "@middlewares/auth.mdw";
-import { getRams } from "@controllers/products/ram.controller";
+import { getRams, getOptions } from "@controllers/products/ram.controller";
 
 const ramRoute = Router();
 
@@ -10,6 +10,7 @@ ramRoute.use(function (req, res, next) {
 });
 
 ramRoute.get('/', getRams)
+ramRoute.get('/getOptions', getOptions)
 
 // ramRoute.get('/test')
 

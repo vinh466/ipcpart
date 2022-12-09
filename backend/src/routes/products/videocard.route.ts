@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { isAdmin, isUser } from "@middlewares/auth.mdw";
-import { getVideoCards } from "@controllers/products/videocard.controller";
+import { getVideoCards, getOptions } from "@controllers/products/videocard.controller";
 
 const videoCardRoute = Router();
 
@@ -10,6 +10,7 @@ videoCardRoute.use(function (req, res, next) {
 });
 
 videoCardRoute.get('/', getVideoCards)
+videoCardRoute.get('/getOptions', getOptions)
 
 // videoCardRoute.get('/test')
 

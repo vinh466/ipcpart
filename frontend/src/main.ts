@@ -9,7 +9,6 @@ import '@/assets/styles/main.scss'
 import { FontAwesomeIcon } from './util/fontRegister'
 import { options, Toast } from './util/pluginRegister';
 import VueLazyload from 'vue-lazyload'
-import { useAuthStore } from './stores/auth/AuthStore';
 
 const app = createApp(App)
 
@@ -23,7 +22,6 @@ app.use(router)
 app.use(createPinia().use(({ store }) => {
     store.router = markRaw(router)
 }))
-if (useAuthStore().user) useAuthStore().refreshToken(false);
 app.use(Toast, options);
 
 app

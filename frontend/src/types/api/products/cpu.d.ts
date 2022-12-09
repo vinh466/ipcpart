@@ -17,6 +17,7 @@ export interface CpuModel {
     tdp: string;
     iGpu: string;
     price: number;
+    inStock: number;
     updatedAt?: Date;
     createdAt?: Date;
     deletedAt?: Date;

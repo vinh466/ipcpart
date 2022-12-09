@@ -75,6 +75,10 @@ button {
     &:active {
         background-color: var(--orange);
     }
+    &:disabled{
+        cursor: not-allowed;
+        opacity: .3;
+    }
 }
 button.outline{
     background: none;

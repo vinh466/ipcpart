@@ -12,6 +12,7 @@ interface MonitorModel extends Product {
     productPhoto: string;
     productBrand: string;
     price: number;
+    inStock: number;
     screenSize: string;
     resolution: string;
     refreshRate: string;
@@ -52,6 +53,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`monitors`.`screenSize`," +
             "`monitors`.`resolution`," +
             "`monitors`.`refreshRate`," +

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { body, validationResult } from 'express-validator';
 
-import { refreshToken, signIn, logout, signUp } from "@controllers/auth.controller";
+import { refreshToken, signIn, logout, signUp, adminSignIn } from "@controllers/auth.controller";
 import { validateForm, validateLoginForm, validateRegisterForm, } from "@middlewares/requestValidator.mdw";
 import { isUser } from "@middlewares/auth.mdw";
 import { Models } from "@models/index";
@@ -22,6 +22,8 @@ authRoute.get('/', async (req: Request, res: Response, next: NextFunction) => {
 
 
 authRoute.post('/signup', validateRegisterForm, validateForm, signUp)
+
+authRoute.post('/admin/signin', validateLoginForm, validateForm, adminSignIn)
 
 authRoute.post('/signin', validateLoginForm, validateForm, signIn)
 

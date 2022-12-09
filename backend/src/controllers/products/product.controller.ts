@@ -1,5 +1,7 @@
 import { Models } from "@models/index";
+import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 import { where } from "sequelize";
 
 export const allAccess = (req: Request, res: Response) => {
@@ -10,8 +12,9 @@ export const getProducts = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
     let sizeReq = parseInt(req.query.pageSize as string) || 50;
     const query = {
-        productId: req.query.id as string,
-        productType: req.query.type as string,
+
+        productId: convertStringToArray(req.query.productId as string | string[]),
+        productType: req.query.productType as string,
         productName: req.query.productName as string,
         productBrand: req.query.productBrand as string,
     }
@@ -38,5 +41,16 @@ export const getProducts = async (req: Request, res: Response) => {
         })
     } else {
         res.status(500).json({ msg: 'no record' })
+    }
+}
+
+export const removeProducts = async (req: Request, res: Response) => {
+    let productId = (req.query.productId as string) || '';
+    if (productId) {
+        const result = await Models.Product.removeProduct(productId)
+        if (result?.[0].affectedRows != 0) res.status(200).json({ msg: 'product delete success' })
+        else res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: "can't delete" })
+    } else {
+        res.status(500).json({ msg: 'INTERNAL_SERVER_ERROR' })
     }
 } 

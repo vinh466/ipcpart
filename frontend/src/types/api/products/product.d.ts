@@ -25,11 +25,11 @@ export interface Product {
     productPhoto: string;
     productType: string;
     discount?: double;
-    price: double;
+    price: number;
     inStock: number;
-    updatedAt?: string;
-    createdAt?: string;
-    deletedAt?: string;
+    updatedAt?: string | null;
+    createdAt?: string | null;
+    deletedAt?: string | null;
     review?: {
         rate?: number;
         total?: number;
@@ -41,10 +41,10 @@ export type ProductPageResult = PageResult<Product[]>;
 export type ProductSection = [Array<Product>, Array<Product>?]
 
 export type ProductQuery = {
-    productId: string,
-    productType: string,
-    productName: string,
-    productBrand: string,
+    productId?: string | string[],
+    productType?: string,
+    productName?: string,
+    productBrand?: string,
 }
 export type ProductParams = PageQueryParam<ProductQuery>;
 

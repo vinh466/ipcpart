@@ -7,13 +7,13 @@
       <p class="text-gray-500 mb-0">
         Có vẻ bạn đã gặp vấn đề với đường dẫn ...
       </p>
-      <a @click="handleReturn"> Trở lại trang trước</a>
+      <button class="outline" @click="handleReturn">Trở lại trang trước</button>
     </div>
   </div>
 </template>
 <script setup lang="ts">
   import Breadcrumb from '@/components/Breadcrumb.vue';
-  import { reactive } from 'vue';
+  import { reactive, onMounted } from 'vue';
   import { useRouter } from 'vue-router';
 
   const breadcrumbPath = reactive([
@@ -23,15 +23,28 @@
     },
   ]);
   const router = useRouter();
+  onMounted(() => {
+    document.title = 'Trang  chủ';
+  });
   function handleReturn() {
     router.back();
   }
 </script>
 <style scoped lang="scss">
+  // .container {
+  // }
   .center {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px 10px 20px;
+    color: #aaa;
+    button {
+      padding: 5px 10px;
+      margin: 10px 0;
+    }
   }
   a {
     cursor: pointer;
@@ -43,7 +56,6 @@
     position: relative;
     line-height: 1;
     width: 12.5rem;
-
     &:after {
       content: attr(data-text);
       position: absolute;
@@ -51,7 +63,7 @@
       text-shadow: -1px 0 #e74a3b;
       top: 0;
       color: #5a5c69;
-      background: var(--color-background-mute);
+      background: #fff;
       overflow: hidden;
       clip: rect(0, 900px, 0, 0);
       animation: noise-anim 2s infinite linear alternate-reverse;
@@ -64,7 +76,7 @@
       text-shadow: 1px 0 #4e73df;
       top: 0;
       color: #5a5c69;
-      background: var(--color-background-mute);
+      background: #fff;
       overflow: hidden;
       clip: rect(0, 900px, 0, 0);
       animation: noise-anim-2 3s infinite linear alternate-reverse;

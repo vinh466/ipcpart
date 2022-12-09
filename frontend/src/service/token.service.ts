@@ -1,26 +1,26 @@
 import type { UserItem } from "@/types/api/system/user";
-
+type StorageItem = 'user' | 'admin'
 class TokenService {
-  getLocalRefreshToken() {
-    const user = JSON.parse(localStorage.getItem("user")!);
+  getLocalRefreshToken(role: StorageItem = 'user') {
+    const user = JSON.parse(localStorage.getItem(role)!);
     return user?.refreshToken;
   }
 
-  getLocalAccessToken() {
-    const user = JSON.parse(localStorage.getItem("user")!);
+  getLocalAccessToken(role: StorageItem = 'user') {
+    const user = JSON.parse(localStorage.getItem(role)!);
     return user?.accessToken;
   }
 
-  getLocalTokenExpired() {
-    const user = JSON.parse(localStorage.getItem("user")!);
+  getLocalTokenExpired(role: StorageItem = 'user') {
+    const user = JSON.parse(localStorage.getItem(role)!);
     return user?.tokenExpired;
   }
 
-  updateLocalAccessToken(token: string, tokenExpired: number) {
-    let user = JSON.parse(localStorage.getItem("user")!);
+  updateLocalAccessToken(token: string, tokenExpired: number, role: StorageItem = 'user') {
+    let user = JSON.parse(localStorage.getItem(role)!);
     user.accessToken = token;
     user.tokenExpired = tokenExpired;
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem(role, JSON.stringify(user));
   }
 
   getUser() {
@@ -28,12 +28,23 @@ class TokenService {
   }
 
   setUser(user: UserItem) {
-    console.log(JSON.stringify(user));
     localStorage.setItem("user", JSON.stringify(user));
   }
 
   removeUser() {
     localStorage.removeItem("user");
+  }
+
+  getAdmin() {
+    return JSON.parse(localStorage.getItem("admin")!);
+  }
+
+  setAdmin(user: UserItem) {
+    localStorage.setItem("admin", JSON.stringify(user));
+  }
+
+  removeAdmin() {
+    localStorage.removeItem("admin");
   }
 }
 

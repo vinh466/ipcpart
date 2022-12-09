@@ -7,11 +7,11 @@ import { StatusCodes } from 'http-status-codes';
 import { Token } from "@type/models/token";
 
 
-export const createAccessToken = async (username: string) => {
+export const createAccessToken = async (username: string, role = 'user') => {
     let tokenExpired = jwtConfig.jwtExpiration;
 
     const token = await jwt.sign(
-        { username: username, iat: 0 },
+        { username: username, iat: 0, role },
         jwtConfig.secret,
         { expiresIn: tokenExpired }
     );
@@ -27,7 +27,12 @@ export const signUp = async (req: Request, res: Response) => {
     const userData = {
         username: req.body.user.username as string,
         password: bcrypt.hashSync(req.body.user.password),
-        email: req.body.user.email
+        email: req.body.user.email,
+        name: req.body.user.name,
+        lastname: req.body.user.lastname,
+        address: '',
+        city: '',
+        phone: '',
     }
     try {
         const isExist = await Models.User.findByUsername(req.body.user.username)
@@ -69,6 +74,61 @@ export const signIn = async (req: Request, res: Response) => {
                 return res.status(StatusCodes.OK).json({
                     username: user.username,
                     email: user.email,
+                    name: user.name,
+                    lastname: user.lastname,
+                    address: user.address,
+                    city: user.city,
+                    phone: user.phone,
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt,
+                    accessToken: token,
+                    tokenExpired: tokenExpired,
+                    refreshToken: refreshToken,
+                });
+            } else {
+                return res.status(StatusCodes.UNAUTHORIZED).json({
+                    message: "Invalid Password!"
+                });
+            }
+        }
+        return res.status(StatusCodes.NOT_FOUND).json({
+            message: "User not exist!"
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).send(error);
+    }
+};
+/**
+ * @status 200 OK
+ * @status 401 Invalid Password
+ * @status 404 Invalid User
+ * @status 500 Server Error
+ */
+export const adminSignIn = async (req: Request, res: Response) => {
+    const signInData = {
+        username: req.body.user.username as string,
+        password: req.body.user.password,
+    }
+    try {
+        const user = await Models.User.searchPassword(req.body.user.username)
+        console.log(user?.roles)
+        if (user && (user.roles?.includes('admin') || user.roles?.includes('staff'))) {
+            const passwordIsValid = await bcrypt.compareSync(signInData.password, user.password!);
+            console.log(passwordIsValid)
+            if (passwordIsValid) {
+                let role = 'staff'
+                if (user.roles.includes('admin')) role = 'admin'
+                const { token, tokenExpired } = await createAccessToken(signInData.username, role);
+                const refreshToken = await Models.RefreshToken.create(signInData.username, role)
+                return res.status(StatusCodes.OK).json({
+                    username: user.username,
+                    email: user.email,
+                    name: user.name,
+                    lastname: user.lastname,
+                    address: user.address,
+                    city: user.city,
+                    phone: user.phone,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt,
                     accessToken: token,
@@ -120,6 +180,6 @@ export const refreshToken = async (req: Request, res: Response) => {
         await Models.RefreshToken.remove(refreshToken)
         return res.status(StatusCodes.FORBIDDEN).json({ msg: 'Unauthorized' });
     }
-    const { token: newAccessToken, tokenExpired } = await createAccessToken(dbRefreshToken.username);
+    const { token: newAccessToken, tokenExpired } = await createAccessToken(dbRefreshToken.username, dbRefreshToken.role);
     return res.status(200).json({ newAccessToken, tokenExpired });
 };

@@ -12,6 +12,7 @@ interface RamModel extends Product {
     productPhoto: string;
     productBrand: string;
     price: number;
+    inStock: number;
     capacity: number;
     speed: number;
     standard: string;
@@ -55,6 +56,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`rams`.`capacity`," +
             "`rams`.`speed`," +
             "`rams`.`standard`," +

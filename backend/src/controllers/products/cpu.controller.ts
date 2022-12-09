@@ -1,6 +1,7 @@
 import { Models } from "@models/index";
 import { convertStringToArray } from "@utils/convert.util";
-import { Request, Response } from "express";
+import { query, Request, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 import { where } from "sequelize";
 
 export const allAccess = (req: Request, res: Response) => {
@@ -64,4 +65,53 @@ export const getNameCpus = async (req: Request, res: Response) => {
     else {
         res.status(404).json({ msg: 'no sreach string' })
     }
+}
+
+export const getOptions = async (req: Request, res: Response) => {
+
+    let brandReq = (req.query.brand || '') as string;
+    let processorReq = (req.query.processor || '') as string;
+    let genReq = (req.query.gen || '') as string;
+    let socketReq = (req.query.socket || '') as string;
+    try {
+
+        let result = await Models.CpuType.getOption({
+            query: {
+                brand: brandReq,
+                processor: processorReq,
+                gen: genReq,
+                socket: socketReq,
+            }
+        })
+
+        if (result) {
+            res.status(200).json({ options: result })
+        } else {
+            res.status(404).json({ msg: 'no option' })
+
+        }
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'INTERNAL_SERVER_ERROR' })
+    }
+
+
+}
+
+export const insertCpu = async (req: Request, res: Response) => {
+    let payloadReq = (req.body.payload);
+    try {
+
+        let success = await Models.Cpu.insertOne(payloadReq)
+
+        if (success) {
+            res.status(200).json({ msg: 'success' })
+        } else {
+            res.status(404).json({ msg: 'failed' })
+
+        }
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'INTERNAL_SERVER_ERROR' })
+    }
+
+
 }

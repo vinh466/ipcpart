@@ -12,6 +12,7 @@ interface StorageDriveModel extends Product {
     productPhoto: string;
     productBrand: string;
     price: number;
+    inStock: number;
     type: string;
     pricePerGb: number;
     capacity: string;
@@ -56,6 +57,7 @@ export default class User {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`storage_drives`.`type`," +
             "`storage_drives`.`capacity`," +
             "`storage_drives`.`maxRead`," +

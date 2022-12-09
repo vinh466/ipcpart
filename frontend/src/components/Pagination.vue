@@ -1,7 +1,7 @@
 <template>
   <div v-if="totalPage > 0" class="pagination">
     <button
-      v-if="currentPage != 1"
+      :disabled="!(currentPage > 1)"
       class="pagination_item outline control prev"
       @click="handleControlButton('prev')"
     >
@@ -21,7 +21,7 @@
     </button>
 
     <button
-      v-if="currentPage < totalPage"
+      :disabled="!(currentPage < totalPage)"
       class="pagination_item outline control next"
       @click="handleControlButton('next')"
     >
@@ -52,12 +52,15 @@
     const page = Array.from(Array(props.totalPage).keys(), (v) => v + 1);
 
     page.forEach((v, i) => {
-      if (v == 1) newShow.push(v.toString());
-      else if (v >= props.currentPage - 2 && v <= props.currentPage + 2) {
+      if (
+        v == 1 ||
+        (v < 8 && props.currentPage < 5) ||
+        (v >= props.currentPage - 2 && v <= props.currentPage + 2) ||
+        (v > props.totalPage - 7 && props.currentPage > props.totalPage - 5) ||
+        v == props.totalPage
+      )
         newShow.push(v.toString());
-      } else if (v == props.totalPage) {
-        newShow.push(v.toString());
-      } else {
+      else {
         if (newShow[newShow.length - 1] != '...') newShow.push('...');
       }
     });
@@ -104,6 +107,10 @@
 
       &.control {
         margin: 0 10px;
+        &:disabled {
+          cursor: not-allowed;
+          background-color: unset;
+        }
       }
     }
   }

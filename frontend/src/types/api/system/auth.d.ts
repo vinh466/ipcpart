@@ -22,3 +22,8 @@ export interface Captcha {
   img: string;
   uuid: string;
 }
+
+export interface NewAccessToken {
+  newAccessToken: string;
+  tokenExpired: number;
+}

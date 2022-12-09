@@ -1,3 +1,4 @@
+import { updateUserAddress, getOne, getAllUsers, deleteUser, createUser, updateUser } from "@controllers/user.controller";
 import { isAdmin, isUser } from "@middlewares/auth.mdw";
 import { NextFunction, Request, Response, Router } from "express";
 
@@ -8,12 +9,15 @@ userRoute.use(function (req, res, next) {
     next();
 });
 
-userRoute.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('Welcome to User Route');
-})
+userRoute.get('/', isUser, getOne)
+userRoute.get('/admin', isAdmin, getAllUsers)
+userRoute.post('/admin', isAdmin, createUser)
+userRoute.patch('/admin', isAdmin, updateUser)
+userRoute.delete('/admin', isAdmin, deleteUser)
 userRoute.get('/profile', isUser, (req: Request, res: Response, next: NextFunction) => {
     res.send('Welcome to User Profile');
 })
+userRoute.patch('/profile', isUser, updateUserAddress)
 userRoute.get('/setting', isUser, (req: Request, res: Response, next: NextFunction) => {
     res.send('Welcome!! User ' + req.username || 'none');
 })

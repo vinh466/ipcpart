@@ -1,7 +1,10 @@
+import { cpuData } from "@assets/rawdata/cpu";
 import { Product, ProductId } from "@type/models/product";
 import { convertRegexpQuery, nestedConvert } from "@utils/convert.util";
 import { Connection, escape, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 import { SERVERNAME } from "server";
+import { Models } from "..";
+import { v4 as uuidv4 } from 'uuid';
 
 interface CpuModel extends Product {
     productId: string;
@@ -21,6 +24,7 @@ interface CpuModel extends Product {
     tdp: string;
     iGpu: string;
     price: number;
+    inStock: number;
 }
 interface CpuRowData extends CpuModel, RowDataPacket { }
 
@@ -51,6 +55,7 @@ export default class Cpu {
             "`product`.`productBrand`," +
             "`product`.`productType`," +
             "`product`.`price`," +
+            "`product`.`inStock`," +
             "`Cpu_Type`.`processor`," +
             "`Cpu_Type`.`gen`," +
             "`Cpu_Type->Cpu_Generation`.`codename`," +
@@ -124,5 +129,75 @@ export default class Cpu {
             return false;
         }
     }
-    create(callback: Function) { };
+    async insertOne(payload: {
+        "productName": string;
+        "productPhoto": string;
+        "productBrand": string;
+        "price": number;
+        "processor": string;
+        "gen": string;
+        "socket": string;
+        "coreCount": number;
+        "thread": number;
+        "coreClock": string;
+        "coreBoost": string;
+        "tdp": string;
+        "iGpu": string;
+    }) {
+
+        console.log(payload);
+        try {
+            const conn = await Models.Database.getConnection();
+            try {
+                await conn.beginTransaction()
+                var CURRENT_TIMESTAMP = { toSqlString: function () { return 'CURRENT_TIMESTAMP()'; } };
+                let cpuId = uuidv4();
+                let productData = {
+                    productId: cpuId,
+                    productName: payload.productName,
+                    productBrand: payload.productBrand,
+                    productPhoto: payload.productPhoto,
+                    productType: 'cpu',
+                    price: payload.price * 25.000,
+                    inStock: 0,
+                    updatedAt: null,
+                    createdAt: CURRENT_TIMESTAMP,
+                    deletedAt: null,
+                }
+                let cpuType = {
+                    brand: payload.productBrand,
+                    processor: payload.processor,
+                    gen: payload.gen,
+                    socket: payload.socket,
+                }
+                let [result, meta] = await conn.query<RowDataPacket[]>("SELECT `cpuTypeId` FROM cpu_types WHERE brand =? And processor =? And gen =? And socket=?;", Object.values(cpuType))
+                let cpuData = {
+                    cpuId: cpuId,
+                    cpuTypeId: result[0].cpuTypeId,
+                    coreCount: payload.coreCount,
+                    coreClock: payload.coreClock,
+                    coreBoost: payload.coreBoost,
+                    thread: 0,
+                    tdp: payload.tdp,
+                    iGpu: payload.iGpu,
+                }
+
+                await conn.query<RowDataPacket[]>('insert into `products` value ?', [[Object.values(productData)]]);
+                await conn.query<RowDataPacket[]>('insert into `cpus` value ?', [[Object.values(cpuData)]])
+
+                conn.commit();
+                return true
+            } catch (error) {
+                await conn.rollback();
+                throw error
+            } finally {
+                conn.release();
+            }
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    };
+
+
 }
