@@ -59,13 +59,14 @@ export default (axiosInstance: AxiosInstance) => {
             *
             */
             const originalRequest = error.config;
-
-            if (originalRequest.url && ignoreUrl.includes(originalRequest.url)) {
-                return Promise.reject(error);
-            }
+            console.log(originalRequest.url);
+            // if (originalRequest.url && ignoreUrl.includes(originalRequest.url)) {
+            //     return Promise.reject(error);
+            // }
 
             if (error.response?.status == 401) {
 
+                console.log('401 REQUEST');
                 if (!isRefreshToken) {
                     isRefreshToken = true;
                     try {

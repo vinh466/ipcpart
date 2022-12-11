@@ -1,4 +1,5 @@
-import type { OrderForm } from "@/types/api/products/order";
+import type { OrderPageResult } from "@/types/api/cart";
+import type { OrderForm, OrderQuery } from "@/types/api/products/order";
 import type { UserFormData } from "@/types/api/system/user";
 import type { AxiosInstance } from "axios";
 import axios from "axios";
@@ -32,12 +33,27 @@ class OrderService {
         })
     }
 
-    async getAllOrder(data: OrderForm) {
-        return new Promise<boolean>(async (resolve, reject) => {
+    async getOrders({
+        pageSize = 5,
+        page = 1,
+        query = <OrderQuery>{}, }) {
+        return new Promise<OrderPageResult>(async (resolve, reject) => {
             try {
-                const res = await this.api.get("/",)
+                const res = await this.api.get<OrderPageResult>("/", {
+                    params: {
+                        page: page,
+                        pageSize: pageSize,
+                        username: query.username,
+                        orderId: query.orderId,
+                        city: query.city,
+                        status: query.status,
+                        address: query.address,
+                        phone: query.phone,
+                        paymentMethod: query.paymentMethod,
+                    }
+                })
 
-                resolve(true);
+                resolve(res.data);
             } catch (error) {
                 if (axios.isAxiosError(error)) {
                     reject(error);
@@ -45,11 +61,6 @@ class OrderService {
                 reject(false);
             }
         })
-    }
-
-    async test() {
-        const res = (await this.api.get("/profile")).data;
-        console.log(res)
     }
 }
 

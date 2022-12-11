@@ -107,6 +107,44 @@ class CpuService {
             }
         })
     }
+
+
+    async update(payload: {
+        "productId"?: string;
+        "productName"?: string;
+        "productPhoto"?: string;
+        "productBrand"?: string;
+        "price"?: number;
+        "processor"?: string;
+        "gen"?: string;
+        "socket"?: string;
+        "coreCount"?: number;
+        "thread"?: number;
+        "coreClock"?: string;
+        "coreBoost"?: string;
+        "tdp"?: string;
+        "iGpu"?: string;
+    }) {
+        console.log(payload);
+        // return true
+
+        return new Promise<boolean>(async (resolve, reject) => {
+            try {
+                const request = {
+                    payload
+                }
+                console.log(request);
+                const res = await this.api.patch("/", request)
+
+                resolve(true);
+            } catch (error) {
+                if (axios.isAxiosError(error)) {
+                    reject(error);
+                }
+                reject(false);
+            }
+        })
+    }
 }
 
 const cpuService = new CpuService();

@@ -44,6 +44,8 @@ class OrderAdminService {
                         username: query.username,
                         orderId: query.orderId,
                         city: query.city,
+                        name: query.name,
+                        lastname: query.lastname,
                         status: query.status,
                         address: query.address,
                         phone: query.phone,

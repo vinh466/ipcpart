@@ -21,7 +21,17 @@ class ProductService {
         console.log(res)
         return res;
     }
-
+    async searchProducts({ pageSize = 20, page = 1, query = <ProductQuery>{} }) {
+        const res = (await this.api.get<ProductPageResult>("/search", {
+            params: {
+                ...query,
+                page: page,
+                pageSize: pageSize,
+            }
+        })).data;
+        console.log(res)
+        return res;
+    }
 }
 
 const productService = new ProductService();

@@ -22,21 +22,32 @@ class AdminProductService {
         console.log(res)
         return res;
     }
+    // async searchProducts({ pageSize = 20, page = 1, query = <ProductQuery>{} }) {
+    //     const res = (await this.api.get<ProductPageResult>("/search", {
+    //         params: {
+    //             ...query,
+    //             page: page,
+    //             pageSize: pageSize,
+    //         }
+    //     })).data;
+    //     console.log(res)
+    //     return res;
+    // }
     removeProduct(productId: string) {
-        return new Promise<boolean>(async (resolve, reject) => {
+        return new Promise<number>(async (resolve, reject) => {
             try {
                 const res = (await this.api.delete<ProductPageResult>("/", {
                     params: { productId }
                 }));
-                if (res.status == 200) resolve(true)
-                else {
-                    resolve(false)
+                if (res.status == 200) resolve(200)
+                else if (res.status == 403) {
+                    resolve(403)
                 }
             } catch (error) {
                 if (axios.isAxiosError(error)) {
                     reject(error);
                 }
-                reject(false);
+                reject(500);
             }
         })
     }

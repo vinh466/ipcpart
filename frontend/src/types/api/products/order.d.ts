@@ -43,6 +43,8 @@ export type OrderQuery = {
     username?: string;
     orderId?: string;
     city?: string;
+    name?: string;
+    lastname?: string;
     status?: string;
     address?: string;
     phone?: string;

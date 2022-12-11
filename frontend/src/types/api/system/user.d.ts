@@ -12,11 +12,12 @@ export interface UserItem {
   email: string;
   // status?: number;
   name: string;
+  password?: string;
   lastname: string;
   address: string;
   city: string;
   phone: string;
-  role: Role;
+  roles: Role;
   createTime?: string;
   accessToken?: string;
   refreshToken?: string;
@@ -43,7 +44,7 @@ export interface UserFormData {
   name?: string;
   lastname?: string;
   password?: string;
-  roles?: string;
+  roles?: Role;
   address?: string;
   city?: string;
   phone?: string;
