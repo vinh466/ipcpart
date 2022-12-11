@@ -223,6 +223,9 @@
       getUsers();
     }
   });
+  watch([pagination], () => {
+    getUsers();
+  });
   function handleAddUser() {
     addPopupView.value = true;
     activePopup.value = true;

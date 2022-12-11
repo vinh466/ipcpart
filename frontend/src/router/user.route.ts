@@ -37,6 +37,14 @@ export const userRoutes: Array<RouteRecordRaw> = [
         component: () => import('@/views/user/cart/order.vue')
     },
     {
+        path: '/order/:type',
+        name: 'order-type',
+        meta: {
+            layout: main
+        },
+        component: () => import('@/views/user/cart/order.vue')
+    },
+    {
         path: '/cart/checkout',
         name: 'cart/checkout',
         meta: {

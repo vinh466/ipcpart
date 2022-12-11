@@ -132,12 +132,12 @@
           :productItem="productEdit"
           @click="(e) => e.stopPropagation()"
           :key="productEdit.productId"
-          @escape="(e) => (activePopup = false)"
+          @escape="hadnlEscapePopup"
         />
         <AddProductPopup
           v-if="addProductView"
           @click="(e) => e.stopPropagation()"
-          @escape="(e) => (activePopup = false)"
+          @escape="hadnlEscapePopup"
         />
         <!-- @escape="(e) => (activePopup = false)" -->
         <ConfirmDialog
@@ -149,11 +149,7 @@
               handleDelete(confirmDelete);
             }
           "
-          @onCancel="
-            () => {
-              activePopup = false;
-            }
-          "
+          @onCancel="hadnlEscapePopup"
         />
       </div>
     </div>
@@ -170,6 +166,8 @@
   import { useToast } from 'vue-toastification';
   import EditProductPopup from './component/EditProductPopup.vue';
   import AddProductPopup from './component/AddProductPopup.vue';
+  import axios from 'axios';
+  import productService from '@/service/user/products/product.service';
   // const props = defineProps<{
   //   // data: Product[];
   // }>();
@@ -237,7 +235,7 @@
   async function getProduct() {
     tableLoading.value = true;
     try {
-      productData.value = await adminProductService.getProducts({
+      productData.value = await productService.searchProducts({
         pageSize: pagination.pageSize,
         page: pagination.currentPage,
         query: {
@@ -263,18 +261,23 @@
     console.log(product);
     productEdit.value = product;
     activePopup.value = true;
+    getProduct();
   }
   async function handleDelete(id: string) {
     try {
       console.log(id);
-      const OK = await adminProductService.removeProduct(id);
-      if (OK) {
+      const status = await adminProductService.removeProduct(id);
+      console.log(status);
+      if (status == 200) {
         toast.success('Đã xóa ' + id);
-      } else {
-        toast('Không thể xóa ' + id);
       }
     } catch (error) {
-      toast.error('Không thể xóaa ' + id);
+      console.log(error);
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status == 403) {
+          toast('Không đủ quyền !');
+        }
+      } else toast.error('Không thể xóa ' + id);
     }
     confirmDelete.value = '';
     activePopup.value = false;
@@ -284,6 +287,10 @@
     e.stopPropagation();
     confirmDelete.value = id;
     activePopup.value = true;
+  }
+  function hadnlEscapePopup() {
+    activePopup.value = false;
+    getProduct();
   }
 </script>
 <style lang="scss">
@@ -484,6 +491,12 @@
             }
           }
         }
+      }
+      .footing {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 15px;
       }
     }
   }

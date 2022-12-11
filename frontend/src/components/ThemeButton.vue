@@ -22,6 +22,8 @@
   import { ref } from 'vue';
 
   const darkTheme = ref(true);
+  changeTheme();
+
   function changeTheme() {
     darkTheme.value = !darkTheme.value;
     document.body.dataset.theme = darkTheme.value ? 'dark' : '';

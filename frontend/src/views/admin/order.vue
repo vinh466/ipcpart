@@ -317,6 +317,8 @@
         status: orderType.value as string,
         username: searchTable.value,
         orderId: searchTable.value,
+        name: searchTable.value,
+        lastname: searchTable.value,
         city: searchTable.value,
         address: searchTable.value,
         phone: searchTable.value,

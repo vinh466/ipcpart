@@ -168,7 +168,9 @@
     <div class="footing">
       <div class="btn-control">
         <button @click="emit('onEscape')">Hủy</button>
-        <button @click="submitBtnRef?.click()">Thêm</button>
+        <button @click="submitBtnRef?.click()">
+          {{ editForm ? 'Cập nhập' : 'Thêm' }}
+        </button>
       </div>
     </div>
   </div>
@@ -292,11 +294,24 @@
   const handleFormSubmit = handleSubmit(async (values) => {
     // console.log(JSON.stringify(values, null, 2));
     try {
-      const success = await cpuService.create(values);
-      if (success) {
-        toast.success('Đã thêm');
-        emit('onEscape');
-      } else toast.info('Không thể thêm');
+      if (props.editForm) {
+        if (props.product?.productId) {
+          const success = await cpuService.update({
+            productId: props.product?.productId,
+            ...values,
+          });
+          if (success) {
+            toast.success('Đã cập nhập');
+            emit('onEscape');
+          } else toast.info('Không thể cập nhập');
+        } else toast.info('Không thể cập nhập');
+      } else {
+        const success = await cpuService.create(values);
+        if (success) {
+          toast.success('Đã thêm');
+          emit('onEscape');
+        } else toast.info('Không thể thêm');
+      }
     } catch (error) {
       toast.info('Xảy ra lỗi');
     }

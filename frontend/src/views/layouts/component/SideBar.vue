@@ -2,7 +2,7 @@
   <aside class="app-sidebar">
     <div class="app-sidebar__user">
       <p class="app-sidebar__user-name">
-        <b>{{ user?.name }}</b>
+        <b>{{ user?.name + ' - ' + roleName }}</b>
       </p>
       <div class="app-sidebar__user-exist">
         <button @click="authStore.logout()">
@@ -79,9 +79,20 @@
   import { useAdminAuthStore } from '@/stores/auth/AdminAuthStore';
   import { storeToRefs } from 'pinia';
   import { useRoute } from 'vue-router';
+  import { computed } from 'vue';
   const route = useRoute();
   const authStore = useAdminAuthStore();
   const { user } = storeToRefs(authStore);
+  const roleName = computed(() => {
+    console.log(user.value?.roles);
+    let role = 'Nhân viên';
+    if (user.value?.roles) {
+      user.value?.roles.forEach((value) => {
+        if (value === 'admin') role = 'Quản lý';
+      });
+    }
+    return role;
+  });
 </script>
 <style lang="scss">
   .app-sidebar {

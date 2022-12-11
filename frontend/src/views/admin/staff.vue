@@ -259,7 +259,7 @@
     activePopup.value = true;
   }
   function handleViewDetail(item: UserItem) {
-    toast('View ' + item.username);
+    // toast('View ' + item.username);
     console.log(item);
   }
 

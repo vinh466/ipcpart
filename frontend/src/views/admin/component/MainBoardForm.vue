@@ -151,7 +151,9 @@
     <div class="footing">
       <div class="btn-control">
         <button @click="emit('onEscape')">Hủy</button>
-        <button @click="submitBtnRef?.click()">Thêm</button>
+        <button @click="submitBtnRef?.click()">
+          {{ editForm ? 'Cập nhập' : 'Thêm' }}
+        </button>
       </div>
     </div>
   </div>

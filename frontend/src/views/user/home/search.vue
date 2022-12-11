@@ -89,7 +89,7 @@
         productType: searchString.value,
         productBrand: searchString.value,
       };
-      fetchProduct = await productService.getProducts({
+      fetchProduct = await productService.searchProducts({
         pageSize: 20,
         page: page,
         query: query as ProductQuery,
