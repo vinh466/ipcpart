@@ -146,3 +146,4 @@ export async function deleteUser(req: Request, res: Response) {
     }
 
 }
+

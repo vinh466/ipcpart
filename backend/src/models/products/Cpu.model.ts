@@ -1,10 +1,11 @@
 import { cpuData } from "@assets/rawdata/cpu";
 import { Product, ProductId } from "@type/models/product";
-import { convertRegexpQuery, nestedConvert } from "@utils/convert.util";
+import { convertRegexpQuery, convertSetUpdateQuery, nestedConvert } from "@utils/convert.util";
 import { Connection, escape, OkPacket, Pool, RowDataPacket } from "mysql2/promise";
 import { SERVERNAME } from "server";
 import { Models } from "..";
 import { v4 as uuidv4 } from 'uuid';
+import { ResultSetHeader } from "mysql2";
 
 interface CpuModel extends Product {
     productId: string;
@@ -199,5 +200,95 @@ export default class Cpu {
         }
     };
 
+    async update(payload: {
+        "productId": string;
+        "productName": string;
+        "productPhoto": string;
+        "productBrand": string;
+        "price": number;
+        "inStock": number;
+        "processor": string;
+        "gen": string;
+        "socket": string;
+        "coreCount": number;
+        "thread": number;
+        "coreClock": string;
+        "coreBoost": string;
+        "tdp": string;
+        "iGpu": string;
+    }) {
+
+        console.log(payload);
+        try {
+            const conn = await Models.Database.getConnection();
+            try {
+                await conn.beginTransaction()
+                const updateProduct = "UPDATE `products`" +
+                    "SET" +
+                    convertSetUpdateQuery({
+                        'productName': payload.productName,
+                        'productPhoto': payload.productPhoto,
+                        'productBrand': payload.productBrand,
+                        'price': payload.price,
+                        'inStock': payload.inStock
+                    }) +
+                    ` WHERE\`productId\` = '${payload.productId}';`
+                console.log(updateProduct);
+                const cpuType = [
+                    payload.productBrand,
+                    payload.processor,
+                    payload.gen,
+                    payload.socket
+                ]
+                await this.Database.query<ResultSetHeader>({ sql: updateProduct })
+                let [cpuTypeResult, meta] = await conn.query<RowDataPacket[]>("SELECT `cpuTypeId` FROM cpu_types WHERE brand =? And processor =? And gen =? And socket=?;", cpuType)
+                const updateCpu = "UPDATE `cpus`" +
+                    "SET" +
+                    convertSetUpdateQuery({
+                        cpuTypeId: cpuTypeResult[0].cpuTypeId,
+                        "coreCount": payload.coreCount,
+                        "thread": payload.thread,
+                        "coreClock": payload.coreClock,
+                        "coreBoost": payload.coreBoost,
+                        "tdp": payload.tdp,
+                        "iGpu": payload.iGpu,
+                    }) +
+                    ` WHERE\`cpuId\` = '${payload.productId}';`
+                console.log(updateCpu);
+                await this.Database.query<ResultSetHeader>({ sql: updateCpu })
+
+
+                const updateCpuType = "UPDATE `cpus`" +
+                    "SET" +
+                    convertSetUpdateQuery({
+                        "processor": payload.processor,
+                        "gen": payload.gen,
+                        "socket": payload.socket,
+                        "coreCount": payload.coreCount,
+                        "thread": payload.thread,
+                        "coreClock": payload.coreClock,
+                        "coreBoost": payload.coreBoost,
+                        "tdp": payload.tdp,
+                        "iGpu": payload.iGpu,
+                    }) +
+                    ` WHERE\`cpuId\` = '${payload.productId}';`
+                console.log(updateCpu);
+                await this.Database.query<ResultSetHeader>({ sql: updateCpu })
+
+                conn.commit();
+                return true;
+            } catch (error) {
+                await conn.rollback();
+                console.log('ROLLBACK');
+                throw error
+            } finally {
+                conn.release();
+            }
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    };
 
 }
+

@@ -20,18 +20,6 @@ Route.use('/staff', staffRoute);
 Route.use('/auth', authRoute);
 Route.use('/product', productRoute);
 Route.use('/order', orderRoute);
-Route.use('/test', async (req, res) => {
-    const sqlQuery = req.query.sql as string
-    console.log(sqlQuery);
-    const [result, meta] = await Models.Database.query<RowDataPacket[]>(sqlQuery);
-    var arr = []
-    console.log(result[0]);
-    for (const item of result) {
-        const [key, value] = Object.entries(item)[0]
-        arr.push(value)
-    }
-    res.status(200).json(arr)
-});
 
 
 export default Route;

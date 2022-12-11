@@ -115,3 +115,21 @@ export const insertCpu = async (req: Request, res: Response) => {
 
 
 }
+export const updateCpu = async (req: Request, res: Response) => {
+    let payloadReq = (req.body.payload);
+    try {
+
+        let success = await Models.Cpu.update(payloadReq)
+
+        if (success) {
+            res.status(200).json({ msg: 'success' })
+        } else {
+            res.status(404).json({ msg: 'failed' })
+
+        }
+    } catch (error) {
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ msg: 'INTERNAL_SERVER_ERROR' })
+    }
+
+
+}

@@ -7,17 +7,28 @@ import { StatusCodes } from "http-status-codes";
 export const getOrders = async (req: Request, res: Response) => {
     let pageReq = parseInt(req.query.page as string) || 1;
     let sizeReq = parseInt(req.query.pageSize as string) || 50;
+    req.query = extractData<typeof req.query>(req.query)
     const query = {
+        user: req.username,
+        username: req.query.username as string,
+        orderId: req.query.orderId as string,
+        city: convertStringToArray(req.query.city as string | string[]),
+        status: convertStringToArray(req.query.status as string | string[]),
+        address: convertStringToArray(req.query.address as string | string[]),
+        phone: convertStringToArray(req.query.phone as string | string[]),
+        paymentMethod: convertStringToArray(req.query.paymentMethod as string | string[]),
     }
+
     if (pageReq < 0) pageReq = 0
     if (sizeReq < 0) sizeReq = 0
-
     let result = await Models.Order.getOrders({
         page: pageReq,
         pageSize: sizeReq,
-        where: query
+        where: extractData<typeof query>(query)
     });
-    if (result) {
+
+    console.log(req.username);
+    if (result && req.username) {
         const { records, total, currPage } = result
 
         res.status(200).json({
@@ -42,6 +53,8 @@ export const getAllOrders = async (req: Request, res: Response) => {
         username: req.query.username as string,
         orderId: req.query.orderId as string,
         city: convertStringToArray(req.query.city as string | string[]),
+        name: convertStringToArray(req.query.name as string | string[]),
+        lastname: convertStringToArray(req.query.lastname as string | string[]),
         status: convertStringToArray(req.query.status as string | string[]),
         address: convertStringToArray(req.query.address as string | string[]),
         phone: convertStringToArray(req.query.phone as string | string[]),

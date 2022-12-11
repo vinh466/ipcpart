@@ -22,8 +22,11 @@ export default class Order {
         pageSize = 50,
         where = <{
             username?: string;
+            user?: string;
             orderId?: string;
             city?: string[];
+            name?: string[];
+            lastname?: string[];
             status?: string[];
             address?: string[];
             phone?: string[];
@@ -43,7 +46,9 @@ export default class Order {
             "`orders`.`address`," +
             "`orders`.`phone`," +
             "JSON_ARRAYAGG(JSON_OBJECT(" +
-            "'productId',`order_items`.`productId`," +
+            "'productId',`products`.`productId`," +
+            "'productPhoto',`products`.`productPhoto`," +
+            "'productName',`products`.`productName`," +
             "'price', `order_items`.`price`," +
             "'quantity', `order_items`.`quantity`)" +
             ") as 'orderItems'," +
@@ -53,17 +58,21 @@ export default class Order {
         const relationQuery =
             "FROM `orders`" +
             "JOIN `users` ON `users`.`username` = `orders`.`username`" +
-            "JOIN `order_items` ON `order_items`.`orderId` = `orders`.`orderId`"
+            "JOIN `order_items` ON `order_items`.`orderId` = `orders`.`orderId`" +
+            "JOIN `products` ON `order_items`.`productId` = `products`.`productId`"
 
         where = extractData(where)
         const whereQuery = convertWhereQuery([
             { col: 'orders.deletedAt', value: 'NULL', operator: 'is', sqlLogical: 'AND' },
             { col: 'orders.status', value: where.status, operator: 'REGEXP', sqlLogical: 'AND' },
+            { col: 'orders.username', value: where.user, operator: 'eq', sqlLogical: 'AND' },
             [
                 { col: 'orders.username', value: where.username, operator: 'eq', sqlLogical: 'OR' },
                 { col: 'orders.orderId', value: where.orderId, operator: 'eq', sqlLogical: 'OR' },
                 { col: 'orders.paymentMethod', value: where.paymentMethod, operator: 'REGEXP', sqlLogical: 'OR' },
                 { col: 'orders.city', value: where.city, operator: 'REGEXP', sqlLogical: 'OR' },
+                { col: 'users.name', value: where.name, operator: 'REGEXP', sqlLogical: 'OR' },
+                { col: 'users.lastname', value: where.lastname, operator: 'REGEXP', sqlLogical: 'OR' },
                 { col: 'orders.address', value: where.address, operator: 'REGEXP', sqlLogical: 'OR' },
                 { col: 'orders.phone', value: where.phone, operator: 'REGEXP', sqlLogical: '' },
             ],
@@ -82,7 +91,7 @@ export default class Order {
 
         try {
             // Get total query record
-            const query = selectQuery + relationQuery + whereQuery + ' GROUP BY `orders`.`orderId`;'
+            const query = selectQuery + relationQuery + whereQuery + ' GROUP BY `orders`.`orderId` ORDER BY `orders`.`createdAt` DESC;'
             console.log(query)
             let [rawRecords, meta] = await this.Database.query<OrderRowData[]>(query);
             // calculate pagination

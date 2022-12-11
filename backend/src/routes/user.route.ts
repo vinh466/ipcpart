@@ -14,9 +14,6 @@ userRoute.get('/admin', isAdmin, getAllUsers)
 userRoute.post('/admin', isAdmin, createUser)
 userRoute.patch('/admin', isAdmin, updateUser)
 userRoute.delete('/admin', isAdmin, deleteUser)
-userRoute.get('/profile', isUser, (req: Request, res: Response, next: NextFunction) => {
-    res.send('Welcome to User Profile');
-})
 userRoute.patch('/profile', isUser, updateUserAddress)
 userRoute.get('/setting', isUser, (req: Request, res: Response, next: NextFunction) => {
     res.send('Welcome!! User ' + req.username || 'none');

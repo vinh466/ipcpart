@@ -11,7 +11,7 @@ orderRoute.use(function (req, res, next) {
 });
 
 orderRoute.get('/', isUser, getOrders)
-orderRoute.post('/', insertOne)
+orderRoute.post('/', isUser, insertOne)
 orderRoute.get('/admin/', isStaff, getAllOrders)
 orderRoute.patch('/admin/', isStaff, updateOrder)
 
