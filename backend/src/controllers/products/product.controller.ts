@@ -2,7 +2,6 @@ import { Models } from "@models/index";
 import { convertStringToArray } from "@utils/convert.util";
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
-import { where } from "sequelize";
 
 export const allAccess = (req: Request, res: Response) => {
     res.status(200).send("Public Content.");
