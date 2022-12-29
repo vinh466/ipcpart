@@ -10,7 +10,7 @@
   <h3 align="center">IPcPart Project</h3>
 
   <p align="center">
-    This is a full stack webapp project with Vue 3, ExpressJS, MySql !
+    This is a full stack webapp project with Typescript, Vue 3, Express, MySql !
     <br /> 
   </p>
 </div>
@@ -32,7 +32,7 @@
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#screenshots">Screenshots</a></li>
   </ol>
 </details>
 
