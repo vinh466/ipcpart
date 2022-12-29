@@ -93,7 +93,7 @@
   // prettier-ignore
   const chose = {
     brandCheck: ["MSI","Asus","ASRock","Gigabyte","NZXT"],
-    chipsetCheck: ["A320","A520","B450","B550","B650","B660","H510","TRX40","X570","X670","Z490","Z590","Z690","Z790"],
+    chipsetCheck: ["A320","A520","B450","B550","B650","B660","H510","TRX40","X570","X670","Z490","Z590","Z690","Z790",'án'],
     socketCheck: ['AM4','AM5','LGA 1150','LGA 1151','LGA 1155','LGA 1200','LGA 1700','LGA 2011','LGA 2066','sTR4',],
     ramStandardCheck: ['DDR3','DDR4','DDR5',],
     formCheck: ["Micro ATX","ATX","EATX","Mini ITX",],
